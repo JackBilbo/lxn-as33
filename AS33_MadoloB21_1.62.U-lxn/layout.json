@@ -1,0 +1,534 @@
+{
+  "content": [
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/B21_SETTINGS.js",
+      "size": 1885,
+      "date": 133096438316839583
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/b21_includes/geo.js",
+      "size": 5135,
+      "date": 133096438318687958
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/b21_includes/geo_test.html",
+      "size": 246,
+      "date": 133096438318748605
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/b21_soaring_engine/b21_soaring_engine.html",
+      "size": 627,
+      "date": 133096438318835202
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/b21_soaring_engine/b21_soaring_engine.js",
+      "size": 63030,
+      "date": 133096438318887362
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/b21_soaring_engine/README.md",
+      "size": 1212,
+      "date": 133096438318941609
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/jbb.css",
+      "size": 7036,
+      "date": 133110203018263612
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/jbb.js",
+      "size": 9258,
+      "date": 133110204101247014
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx9050_display.png",
+      "size": 3224521,
+      "date": 133096438324912979
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx9050_task.png",
+      "size": 3177827,
+      "date": 133096438325182425
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.css",
+      "size": 18403,
+      "date": 133109057755802830
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.html",
+      "size": 20874,
+      "date": 133110201556448416
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.js",
+      "size": 127561,
+      "date": 133110197222157620
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/mapConfig.json",
+      "size": 2871,
+      "date": 133096438325237617
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/navmap_topomap.js",
+      "size": 24925,
+      "date": 133110131690813475
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet.css",
+      "size": 2896,
+      "date": 133109817128038377
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet.js",
+      "size": 318879,
+      "date": 133105094468155290
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet_class.js",
+      "size": 10109,
+      "date": 133109829214189835
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_bank.pdn",
+      "size": 37268,
+      "date": 133096438325323776
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_bank.png",
+      "size": 9770,
+      "date": 133096438325390955
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_pitch - Copy.png",
+      "size": 19256,
+      "date": 133096438325447093
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_pitch.pdn",
+      "size": 31841,
+      "date": 133096438325502336
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_pitch.png",
+      "size": 31350,
+      "date": 133096438325559117
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_static.png",
+      "size": 8211,
+      "date": 133096438325616857
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrows_all.png",
+      "size": 390,
+      "date": 133096438326084864
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_0.png",
+      "size": 132,
+      "date": 133096438325675174
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_minus_1.png",
+      "size": 177,
+      "date": 133096438325736294
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_minus_2.png",
+      "size": 184,
+      "date": 133096438325799953
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_minus_3.png",
+      "size": 186,
+      "date": 133096438325847544
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_plus_1.png",
+      "size": 177,
+      "date": 133096438325912280
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_plus_2.png",
+      "size": 186,
+      "date": 133096438325970722
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_plus_3.png",
+      "size": 187,
+      "date": 133096438326025246
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/background_off.png",
+      "size": 102062,
+      "date": 133096438326151648
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/nav_data.pdn",
+      "size": 1036774,
+      "date": 133096438326281071
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/images/page1.png",
+      "size": 679380,
+      "date": 133096438326379896
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/glider_icon.svg",
+      "size": 278,
+      "date": 133096438326468561
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT7.png",
+      "size": 1233,
+      "date": 133096438327687484
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT7.svg",
+      "size": 2720,
+      "date": 133096438327744223
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT8.png",
+      "size": 1043,
+      "date": 133096438327807656
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT8.svg",
+      "size": 1702,
+      "date": 133096438327872656
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_HELIPORT_PINK.png",
+      "size": 872,
+      "date": 133096438326539463
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_HELIPORT_PINK.svg",
+      "size": 801,
+      "date": 133096438326604406
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_NON_TOWERED_NON_SERVICED_PINK.png",
+      "size": 872,
+      "date": 133096438326671306
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_NON_TOWERED_NON_SERVICED_PINK.svg",
+      "size": 842,
+      "date": 133096438326748481
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_NON_TOWERED_SEAPLANE_CIV_PINK.png",
+      "size": 1244,
+      "date": 133096438326805555
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_NON_TOWERED_SERVICED_PINK - Copy.png",
+      "size": 1107,
+      "date": 133096438326865294
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_NON_TOWERED_SERVICED_PINK.png",
+      "size": 1082,
+      "date": 133096438326937037
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_NON_TOWERED_SERVICED_PINK.svg",
+      "size": 2411,
+      "date": 133096438327000068
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_PRIVATE_PINK.png",
+      "size": 975,
+      "date": 133096438327059852
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_PRIVATE_PINK.svg",
+      "size": 1313,
+      "date": 133096438327130142
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_TOWERED_NON_SERVICED_BLUE.png",
+      "size": 889,
+      "date": 133096438327192501
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_TOWERED_NON_SERVICED_BLUE.svg",
+      "size": 835,
+      "date": 133096438327260044
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_TOWERED_SEAPLANE_CIV_BLUE.png",
+      "size": 1231,
+      "date": 133096438327314412
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_TOWERED_SERVICED_BLUE - Copy.png",
+      "size": 1098,
+      "date": 133096438327382933
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_TOWERED_SERVICED_BLUE.png",
+      "size": 974,
+      "date": 133096438327439388
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_TOWERED_SERVICED_BLUE.svg",
+      "size": 2386,
+      "date": 133096438327501796
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_UNKNOWN_PINK.png",
+      "size": 1041,
+      "date": 133096438327567378
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_AIRPORT_UNKNOWN_PINK.svg",
+      "size": 1412,
+      "date": 133096438327628232
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_INTERNATIONAL_HIGHWAY.png",
+      "size": 328,
+      "date": 133096438327926522
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_INTERNATIONAL_HIGHWAY.svg",
+      "size": 509,
+      "date": 133096438327992554
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_INTERSECTION.png",
+      "size": 638,
+      "date": 133096438328047980
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_INTERSECTION.svg",
+      "size": 403,
+      "date": 133096438328104146
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_INTERSECTION_ACTIVE.png",
+      "size": 638,
+      "date": 133096438328164602
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_INTERSECTION_ACTIVE.svg",
+      "size": 403,
+      "date": 133096438328223674
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_INTERSTATE_HIGHWAY.png",
+      "size": 1333,
+      "date": 133096438328287887
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_INTERSTATE_HIGHWAY.svg",
+      "size": 1535,
+      "date": 133096438328338038
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_LARGE_CITY.png",
+      "size": 757,
+      "date": 133096438328402867
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_LARGE_CITY.svg",
+      "size": 428,
+      "date": 133096438328465398
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_MEDIUM_CITY.png",
+      "size": 618,
+      "date": 133096438328526158
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_MEDIUM_CITY.svg",
+      "size": 405,
+      "date": 133096438328585435
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_NDB_WAYPOINT.png",
+      "size": 1903,
+      "date": 133096438328650657
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_NDB_WAYPOINT.svg",
+      "size": 9319,
+      "date": 133096438328717853
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_LIGHTED_LESS_1000_AGL_GREY.svg",
+      "size": 2745,
+      "date": 133096438328781442
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_LIGHTED_LESS_1000_AGL_RED.svg",
+      "size": 2723,
+      "date": 133096438328849810
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_LIGHTED_LESS_1000_AGL_YELLOW.svg",
+      "size": 2747,
+      "date": 133096438328911407
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_LIGHTED_MORE_1000_AGL_GREY.svg",
+      "size": 2712,
+      "date": 133096438328973568
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_LIGHTED_MORE_1000_AGL_RED.svg",
+      "size": 2690,
+      "date": 133096438329039410
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_LIGHTED_MORE_1000_AGL_YELLOW.svg",
+      "size": 2714,
+      "date": 133096438329102454
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_UNLIGHTED_LESS_1000_AGL_GREY.svg",
+      "size": 1082,
+      "date": 133096438329160931
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_UNLIGHTED_LESS_1000_AGL_RED.svg",
+      "size": 1060,
+      "date": 133096438329225309
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_UNLIGHTED_LESS_1000_AGL_YELLOW.svg",
+      "size": 1084,
+      "date": 133096438329279868
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_UNLIGHTED_MORE_1000_AGL_GREY.svg",
+      "size": 1082,
+      "date": 133096438329339637
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_UNLIGHTED_MORE_1000_AGL_RED.svg",
+      "size": 1060,
+      "date": 133096438329406779
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_OBSTACLE_UNLIGHTED_MORE_1000_AGL_YELLOW.svg",
+      "size": 1084,
+      "date": 133096438329485950
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_PLANE.svg",
+      "size": 3457,
+      "date": 133096438329547484
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_SMALL_CITY.png",
+      "size": 544,
+      "date": 133096438329602315
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_SMALL_CITY.svg",
+      "size": 411,
+      "date": 133096438329658635
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_STATE_HIGHWAY.png",
+      "size": 892,
+      "date": 133096438329726972
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_STATE_HIGHWAY.svg",
+      "size": 619,
+      "date": 133096438329788927
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_USERWAYPOINT.png",
+      "size": 351,
+      "date": 133096438329970635
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_USERWAYPOINT.svg",
+      "size": 370,
+      "date": 133096438330036726
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_US_HIGHWAY.png",
+      "size": 1213,
+      "date": 133096438329848988
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_US_HIGHWAY.svg",
+      "size": 2810,
+      "date": 133096438329915134
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR.png",
+      "size": 946,
+      "date": 133096438330094794
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR.svg",
+      "size": 775,
+      "date": 133096438330172948
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR_DME.png",
+      "size": 911,
+      "date": 133096438330228190
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR_DME.svg",
+      "size": 1270,
+      "date": 133096438330303811
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR_ILS.png",
+      "size": 481,
+      "date": 133096438330371913
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR_ILS.svg",
+      "size": 506,
+      "date": 133096438330438840
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR_TACAN.png",
+      "size": 1280,
+      "date": 133096438330511050
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR_TACAN.svg",
+      "size": 959,
+      "date": 133096438330570248
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR_VORTAC.png",
+      "size": 1390,
+      "date": 133096438330635909
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/ICON_MAP_VOR_VORTAC.svg",
+      "size": 1256,
+      "date": 133096438330700940
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/thermalling_display/thermalling_display.css",
+      "size": 3168,
+      "date": 133096438330799615
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/thermalling_display/thermalling_display.html",
+      "size": 6418,
+      "date": 133096438330858831
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/thermalling_display/thermalling_display.js",
+      "size": 25104,
+      "date": 133096438330924859
+    }
+  ]
+}

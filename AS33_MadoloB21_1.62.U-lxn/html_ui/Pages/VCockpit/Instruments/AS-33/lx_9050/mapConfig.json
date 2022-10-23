@@ -1,0 +1,113 @@
+﻿{
+  "waypointLabelFontSize": 46,
+  "waypointLabelFontFamily": "Consolas",
+  "waypointLabelColor": "#3f4851",
+  "waypointLabelStrokeColor": "#3f3f3f",
+  "waypointLabelStrokeWidth": 0,
+  "waypointLabelUseBackground": true,
+  "waypointLabelBackgroundColor": "#ffffff",
+  "waypointLabelBackgroundStrokeColor": "black",
+  "waypointLabelBackgroundStrokeWidth": 0,
+  "waypointLabelBackgroundPadding": "5 5 5 5",
+  "waypointLabelDistance": 12,
+  "waypointIconSize": 200,
+
+  "cityLabelFontSize": 24,
+  "cityLabelFontFamily": "Consolas",
+  "cityLabelColor": "#black",
+  "cityLabelStrokeColor": "#3f3f3f",
+  "cityLabelStrokeWidth": 0,
+  "cityLabelUseBackground": false,
+  "cityLabelBackgroundColor": "white",
+  "cityLabelBackgroundStrokeColor": "red",
+  "cityLabelBackgroundStrokeWidth": 10,
+  "cityLabelBackgroundPadding": "7 12 0 12",
+  "cityLabelDistance": 0.45,
+  "cityIconSize": 90,
+
+  "airplaneIconSize": 128,
+  "airplaneIcon1": "glider_icon",
+  "airplaneIcon2": "ICON_MAP_PLANE",
+
+  "imagesDir": "/Pages/VCockpit/Instruments/AS-33/lx_9050/map_images/",
+
+  "runwayFillColor": "orange",
+  "runwayStrokeColor": "gray",
+  "runwayStrokeWidth": 3,
+  "runwayCornerRadius": 8,
+  "runwayMinimalWidth": 16,
+
+  "latLonStrokeColor": "gray",
+  "latLonStrokeWidth": 1,
+  "latLonLabelFontFamily": "Consolas",
+  "latLonLabelFontSize": 14,
+  "latLonLabelColor": "white",
+  "latLonLabelStrokeColor": "none",
+  "latLonLabelStrokeWidth": 0,
+
+  "flightPlanActiveLegColor": "#ed008c",
+  "flightPlanActiveLegWidth": 6,
+  "flightPlanActiveLegStrokeColor": "#3f3f3f",
+  "flightPlanActiveLegStrokeWidth": 7,
+  "flightPlanNonActiveLegColor": "#ffffff",
+  "flightPlanNonActiveLegWidth": 6,
+  "flightPlanNonActiveLegStrokeColor": "#3f3f3f",
+  "flightPlanNonActiveLegStrokeWidth": 7,
+
+  "roadMotorWayColor": "#0018a5",
+  "roadMotorWayWidth": 8,
+  "roadTrunkColor": "#873F00",
+  "roadTrunkWidth": 5,
+  "roadPrimaryColor": "#84154B",
+  "roadPrimaryWidth": 3,
+
+  "railwayStrokeColor": "#000000",
+  "railwayWidth": 2,
+  "railwayDashLength": 6,
+
+  "netBingMapTextureResolution": 1000,
+  "netBingAltitudeColors1": [],
+  "netBingWaterColor1": "#184b77",
+  "netBingHeightColor1": [
+    {
+      "alt": 0,
+      "color": "#00440c"
+    },
+    {
+      "alt": 500,
+      "color": "#007f0a"
+    },
+    {
+      "alt": 1000,
+      "color": "#8f9942"
+    },
+    {
+      "alt": 2000,
+      "color": "#fbd45b"
+    },
+    {
+      "alt": 3000,
+      "color": "#fab858"
+    },
+    {
+      "alt": 5000,
+      "color": "#d68b48"
+    },
+    {
+      "alt": 7000,
+      "color": "#c47034"
+    },
+    {
+      "alt": 9000,
+      "color": "#b85d2e"
+    },
+    {
+      "alt": 12000,
+      "color": "#a14d28"
+    }
+  ],
+  "netBingSkyColor1": "#00569d",
+  "netBingSkyColor2": "#00569d",
+  "netBingSkyColor3": "#00569d"
+
+}

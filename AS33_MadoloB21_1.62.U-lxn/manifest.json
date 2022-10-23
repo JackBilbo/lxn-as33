@@ -1,0 +1,15 @@
+{
+  "dependencies": [],
+  "content_type": "AIRCRAFT",
+  "title": "AS 33me",
+  "manufacturer": "Alexander Schleicher",
+  "creator": "MADolo Simulations & B21",
+  "package_version": "0.8.0",
+  "minimum_game_version": "1.16.2",
+  "release_notes": {
+    "neutral": {
+      "LastUpdate": "",
+      "OlderHistory": ""
+    }
+  }
+}

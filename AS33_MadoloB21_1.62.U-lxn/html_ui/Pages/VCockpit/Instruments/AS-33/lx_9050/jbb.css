@@ -1,0 +1,427 @@
+:root {
+	--horizontalpadding: 0.5rem;
+	--verticalpadding: 0.2rem;
+	--deviceheight: 1024px;
+	--devicewidth: 572px;
+	--map_size: 1740; /* VARIABLE SETTING THE (SQUARE) MAP SIZE IN PX, THE 1000x1000 map is expanded to this */
+}
+
+* {box-sizing: border-box;}
+
+.loader {
+	color: #000;
+	position: absolute;
+	top: 200px;
+	width: 60%;
+	left: 20%;
+	height: 2rem;
+	border: 3px solid #222;
+}
+
+.loader .bar {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: #222;
+}
+
+#Map {
+    --map_size: 1740; /* VARIABLE SETTING THE (SQUARE) MAP SIZE IN PX, THE 1000x1000 map is expanded to this */
+    position: absolute;
+    left: -714px; 
+    top: -488px; 
+    width: 2000px;
+    height: 2000px;
+    transform-origin: center;
+    overflow: hidden;
+    border: 2px solid orange;
+    background-color: #222;
+}
+
+.leaflet-pane {
+	width: 100%;
+	height: 100%;
+}
+
+.map_trackup #Map {
+	/* top: calc((-1 * var(--deviceheight) / 2) + 210px); */
+	top: -278px;
+}
+
+
+  #glidericon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0;
+	height: 0;
+	overflow: visible;
+}
+
+.map_trackup #glidericon {
+	top: calc(50% + 210px);
+}
+
+#glidericon #symbol {
+	width: 150px;
+	transform: translate(-75px,-75px) rotate(45deg);
+	fill: #000000;
+	stroke: #ffffff;
+	stroke-width: 5px;
+}
+
+.mpglidericon svg {
+	fill: #fff;
+	stroke: #000;
+	stroke-width: 5px;
+}
+
+#glidericon #ac_hdg, #glidericon #ac_trk {
+    width: 3px;
+    height: 1000px;
+    position: absolute;
+    left: 0;
+    top: -1000px;
+    background-color: #0E57AB;
+}
+
+#glidericon #ac_trk {
+    background-color: #ff22dd;
+    transform-origin: bottom;
+    transform: rotate(0deg);
+}
+
+
+
+#hawk {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1px;
+	height: 1px;
+	overflow: visible;
+	border: 5px solid red;
+	font-size: 45px;
+}
+
+#hawk.active { display: block; }
+
+.map_trackup #hawk {
+	top: calc(50% + 210px);
+}
+
+#hawk .arrow {
+	position: absolute;
+	height: 3rem;
+	top: -1.5rem;
+	width: 2rem;
+	left: -1rem;
+	transform-origin: center;
+}
+
+#arrow_current {
+	background-color: #6162a9;
+}
+
+#arrow_avg {
+	background-color: #aaaaaa;
+}
+
+.arrow svg {
+	width: 200%;
+	position: absolute;
+	bottom: -2rem;
+	left: -50%;
+}
+
+#arrow_current svg {
+	fill: #6162a9;
+}
+
+#arrow_avg svg {
+	fill: #aaaaaa;
+}
+
+#hawk #number {
+	position: absolute;
+	bottom: -300px;
+	padding: var(--verticalpadding) var(--horizontalpadding);
+	width: 20rem;
+	font-size: 1.1em;
+	margin-left: -10rem;
+	text-align:center;
+	color: #fff;
+	background-color: rgba(0,0,0,0.6);
+}
+
+.map_trackup #hawk #number { bottom: -180px; }
+
+#hawk #vertical_indicator {
+	position: absolute;
+	width: calc(var(--devicewidth) / 8);
+	height: 0;
+	border: 1px solid black;
+	right: calc( -1* var(--devicewidth) / 2.3);
+	text-align: center;
+}
+
+.map_trackup #hawk #vertical_indicator { top: -210px; }
+
+#hawkbar {
+	position: absolute;
+	right: 0;
+	bottom:0;
+	width: 100%;
+	height: 0;
+	background-color: #0d8b3c;
+	transition: height 0.2s;
+}
+
+#hawkbar svg {
+	transform: rotate(180deg);
+	position: absolute;
+	left: 0;
+	top: -55px;
+	width: 100%;
+	fill: #0d8b3c;
+}
+
+#hawkbar.negative {
+	background-color: #cc0000;
+	bottom: auto;
+	top: 0;
+}
+
+#hawkbar.negative svg {
+	transform: rotate(0deg);
+	top: auto;
+	bottom: -55px;
+	fill: #cc0000;
+}
+
+#hawkbar .value {
+	color: #fff;
+	position: absolute;
+	bottom: 0.2rem;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+#hawkbar.negative .value {
+	bottom: auto;
+	top: 0.2rem;
+}
+
+
+/* JBB Speedgauge */
+
+
+.speedgauge {
+	position: absolute;
+	left: 0;
+	top: 60px;
+	height: calc(var(--deviceheight) / 2);
+	width: calc(var(--devicewidth) / 5);
+	background-color: rgba(0,0,0,0.4);
+	z-index:99;
+}
+
+.speedband {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.speedladder {
+	position: absolute;
+	color: #fff;
+	bottom: 0;
+	transform: translate(0px, -180px);
+	display: none;
+	width: 100%;
+	padding-left: 1rem;
+}
+
+.kmh .speedladder.kmh { display: block; }
+.kts .speedladder.kts { display: block; }
+
+.speedladder .tick {
+	display: block;
+	height: 50px;
+	width: 100%;
+	position: relative;
+	border-left: 8px solid rgba(30,120,30,0.5);
+}
+
+.speedladder .tick .label {
+	font-size: 40px;
+	position: absolute;
+	bottom: -25px;
+	left: 20px;
+	z-index:1;
+}
+
+.speedladder .tick:before {
+	content: "";
+	display: block;
+	background-color: #fff;
+	height: 2px;
+	width: 10px;
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	z-index:1;
+}
+
+.tick_warn { color: red; border-left: 8px solid red; background-color: rgba(255,0,0,0.2)}
+.tick_warn:before { background-color: red !important; }
+.tick_alert { color: #ffcc00; border-left: 8px solid #ffcc00;  }
+.tick_alert:before { background-color: #ffcc00 !important; }
+
+.currentspeed {
+	position: absolute;
+	background-color: #000;
+	color: #fff;
+	padding: var(--verticalpadding) var(--verticalpadding);
+	text-align: center;
+	top: 50%;
+	left: 1.5rem;
+	width: calc(100% - 1.5rem);
+	height: 60px;
+	line-height: 50px;
+	margin-top: -30px;
+	font-size: 50px;
+}
+
+.currentspeed_arrow {
+	box-sizing: content-box;
+	position: absolute;
+	top: 0;
+	left: -32px;
+	height: 0;
+	width: 16px;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	border-left-width: 16px;
+	border-right: 16px solid #000;
+}
+
+.data-cell .label {
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+}
+
+.data-cell .value {
+	align-self: baseline;
+	font-size: 55px;
+	text-align:center;
+	position: relative; width: 100%;
+}
+
+.stf {
+	padding: var(--verticalpadding) var(--horizontalpadding);
+	position: absolute;
+	bottom: 120px;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	height: 120px;
+}
+
+.stfmarker {
+	position: absolute;
+	bottom: -100px;
+	width: 100%;
+	height: 200px;
+	background: linear-gradient(180deg, rgba(49,163,50,0) 0%, rgba(49,163,50,1) 40%, rgba(49,163,50,1) 60%, rgba(49,163,50,0) 100%);;
+	z-index: -1;
+	transform: translate(0,500px);
+}
+
+.flap_indicator {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	color: #fff;
+	text-align: center;
+	width: 1rem;
+}
+
+.flap_indicator>div { font-size: 1.5rem; border-top: 2px solid #fff; }
+
+
+.mapbutton {
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	background-color: rgba(205,205,205,0.5);
+	border-radius: 50%;
+	border: 2px solid rgb(134, 134, 134);
+	color: #fff;
+	display: block;
+	z-index: 1000;
+}
+
+.mapbutton:hover {
+	background-color: rgba(0,0,0,0.5);
+}
+
+.mapbutton svg {
+	display: block;
+	fill: #FFFFFF;
+	height: 60%;
+	width: 60%;
+	transform: translate(30%,30%);
+}
+
+.mapbutton:hover svg {
+	fill: #000;
+}
+
+#multiplayer {
+	top: 80px;
+	right: 25px;
+}
+
+.content {
+	background-color: #333;
+	color: #fff;
+	font-size: 2rem;
+	padding: var(--horizontalpadding);
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.content.mp {
+	display: none;
+	padding-top: 140px;
+}
+
+.configpanel_buttons {
+	position: absolute;
+	bottom: 0;
+	padding: var(--horizontalpadding) var(--horizontalpadding) 0 var(--horizontalpadding);
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	width: 100%;
+}
+
+.configpanel_close, .servicelink {
+	color: #000;
+	background-color: rgb(255, 255, 255);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	text-align: center;
+	font-size: 40px;
+	line-height: 50px;
+	text-decoration: none;
+	padding: 5px 0;
+	padding: 0 0.5rem;
+}

@@ -1,0 +1,890 @@
+﻿:root {
+  --bodyHeightScale: 1; }
+
+@keyframes TemporaryShow {
+  0%, 100% {
+    visibility: visible; } }
+
+@keyframes TemporaryHide {
+  0%, 100% {
+    visibility: hidden; } }
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+  html body {
+    -webkit-user-select: none;
+    font-family: Roboto-Regular;
+    font-size: 32px; /* calc(var(--viewportHeightRatio) * (36px / 21.6) * var(--currentPageHeight) / 100); */
+    color: white;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0; }
+
+#highlight {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+#battery_required {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/Fonts/RobotoMono-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("/Fonts/RobotoMono-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("/Fonts/RobotoMono-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+lx_9050-element {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  overflow: hidden;
+}
+
+lx_9050-element #Mainframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/background_off.png");
+    background-repeat: no-repeat;
+}
+
+lx_9050-element #battery_required {
+    color: #4ce22c;
+    background-color: #11118c;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    /*padding: 1px; */
+    font-size: 45px; /* calc(7.8947368421vh); */
+    display: none;
+}
+
+/* ********************************************** */
+/* ******* Map content                  ********* */
+/* ********************************************** */
+
+lx_9050-element #TopDisplay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+}
+
+/* NOTE HERE WE SET THE MAP AT 1000px x 1000px, and use scale() to get it to the (square) size we want. */
+/* THE "1174" is the width/height of the box we want in pixels, also used in lx_9050.js                 */
+
+lx_9050-element #Map-- {
+    --map_size: 1740; /* VARIABLE SETTING THE (SQUARE) MAP SIZE IN PX, THE 1000x1000 map is expanded to this */
+    position: absolute;
+    left: calc(calc(572px - var(--map_size)) / 2); /* -301px;*/
+    top: calc(calc(1024px - var(--map_size)) / 2); /* -75px; */
+    width: 1000px;
+    height: 1000px;
+    transform-origin: 0 0;
+    transform: scale(calc(var(--map_size)/1000)); /* 1.174); Places center of 1174 x 1174 onto center of lx_9050 572 x 1024 */
+    overflow: hidden;
+    border: 2px solid orange;
+}
+
+lx_9050-element #MapInstrument {
+position: absolute;
+background-color: black;
+width: 100%;
+height: 100%;
+overflow: hidden; }
+
+lx_9050-element #MapInstrument bing-map {
+  transform: rotateX(0);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+lx_9050-element #MapInstrument #MapSVG {
+  transform: rotateX(0);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%; /* 130% seems to align MapSVG with bing-map */
+  height: 100%;
+  /* border: 2px solid red; */
+}
+
+lx_9050-element #MapInstrument #MapRange {
+    position: absolute;
+    left: 300px;
+    bottom: 20px;
+    color: white;
+    background-color: black;
+}
+
+lx_9050-element #lx_9050_map_overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ********************************************** */
+/* ******* Nav Data                     ********* */
+/* ********************************************** */
+
+lx_9050-element #lx_9050_nav {
+    position: absolute;
+    left: 0;
+    top: 630px;
+    width: 100%;
+    height: 1000px;
+    background-color: #111111; /* #FFE1B7; */
+    color: #888888;
+    display: none;
+}
+
+/* ***** Nav DIRECTION ARROWS ***** */
+
+lx_9050-element #lx_9050_nav_arrows {
+    margin-left: 14px;
+    margin-top: 6px;
+    width: 544px;
+    height: 46px;
+    background-color: white;
+    color: black;
+    border: solid 2px;
+    border-radius: 8px;
+    border-color: black;
+    position: relative;
+}
+
+#lx_9050_nav_arrow_minus_3 {
+    position: absolute;
+    left: 13px;
+    top: 2px;
+    width: 97px;
+    height: 37px;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_minus_3.png");
+    background-repeat: no-repeat;
+}
+
+#lx_9050_nav_arrow_minus_2 {
+    position: absolute;
+    left: 112px;
+    top: 2px;
+    width: 83px;
+    height: 37px;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_minus_2.png");
+    background-repeat: no-repeat;
+}
+
+#lx_9050_nav_arrow_minus_1 {
+    position: absolute;
+    left: 197px;
+    top: 2px;
+    width: 54px;
+    height: 37px;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_minus_1.png");
+    background-repeat: no-repeat;
+}
+
+#lx_9050_nav_arrow_0 {
+    position: absolute;
+    left: 266px;
+    top: 2px;
+    width: 12px;
+    height: 37px;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_0.png");
+    background-repeat: no-repeat;
+}
+
+#lx_9050_nav_arrow_plus_1 {
+    position: absolute;
+    left: 294px;
+    top: 2px;
+    width: 54px;
+    height: 37px;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_plus_1.png");
+    background-repeat: no-repeat;
+}
+
+#lx_9050_nav_arrow_plus_2 {
+    position: absolute;
+    left: 348px;
+    top: 2px;
+    width: 83px;
+    height: 37px;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_plus_2.png");
+    background-repeat: no-repeat;
+}
+
+#lx_9050_nav_arrow_plus_3 {
+    position: absolute;
+    left: 431px;
+    top: 2px;
+    width: 97px;
+    height: 37px;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/arrow_plus_3.png");
+    background-repeat: no-repeat;
+}
+
+/* ***** Nav Data Waypoints ***** */
+
+#lx_9050_nav_waypoints {
+    width: 100%;
+}
+
+.lx_9050_nav_wp {
+    margin-left: 14px;
+    margin-top: 6px;
+    width: 544px;
+    /* background-color: white; */
+    /* color: black; */
+    border-top: solid 2px;
+    border-color: white;
+}
+
+.lx_9050_nav_current_wp {
+    margin-left: 14px;
+    margin-top: 6px;
+    width: 544px;
+    /* background-color: white; */
+    /* color: black; */
+    border-color: white;
+    margin-bottom: 0;
+}
+
+/* NAV WAYPOINT TITLE */
+
+.lx_9050_nav_wp_title {
+    /* width: 100%; */
+    display: flex;
+    font-size: 36px;
+    border-bottom: solid 2px black;
+}
+
+.lx_9050_nav_wp_name {
+    /* width: 65%;
+    display: inline-block;
+    padding-left: 6px;
+    text-align: left; */
+    width: 100%;
+}
+
+.lx_9050_nav_wp_alt {
+    /* width: 35%;
+    display: inline-block;
+    padding-right: 6px;
+    text-align: right; */
+    float: right;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    align-items: flex-end;
+    shape-outside: inset(calc(100% - 35px) 0 0);
+}
+
+/* NAV WAYPOINT LIMITS */
+
+.lx_9050_nav_wp_limits {
+    text-align: right;
+    background-color: #ff9633;
+    color: #111111;
+    font-size: 28px;
+}
+
+/* NAV WAYPOINT NUMBERS */
+
+.lx_9050_nav_wp_numbers {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+
+.lx_9050_nav_wp_distance {
+    width: 24%;
+    font-size: 54px;
+    line-height: 50px;
+    display: inline-block;
+    border-right: solid 2px black;
+}
+
+.lx_9050_nav_wp_bearing {
+    width: 20%;
+    font-size: 54px;
+    line-height: 50px;
+    display: inline-block;
+    border-right: solid 2px black;
+}
+
+.lx_9050_nav_wp_tailwind {
+    width: 20%;
+    font-size: 54px;
+    line-height: 50px;
+    display: inline-block;
+    border-right: solid 2px black;
+}
+
+.lx_9050_nav_wp_arrival_height {
+    width: 35%;
+    font-size: 54px;
+    line-height: 50px;
+    display: inline-block;
+}
+
+.lx_9050_nav_wp_number_title {
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    padding-top: 4px;
+}
+
+.lx_9050_nav_wp_number_value {
+    text-align: center;
+}
+
+.lx_9050_nav_wp_number_units {
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    padding-bottom: 4px;
+}
+
+/* OPTIONAL SECOND ROW OF NUMBERS FOR CURRENT WP */
+
+#lx_9050_nav_wp_row_2 {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    border-top: solid 2px black;
+    /* background-color: #ff99cc; */
+}
+
+.lx_9050_nav_wp_task_time {
+    width: 44%;
+    font-size: 54px;
+    line-height: 50px;
+    display: inline-block;
+    border-right: solid 2px black;
+}
+
+.lx_9050_nav_wp_task_speed {
+    width: 20%;
+    font-size: 54px;
+    line-height: 50px;
+    display: inline-block;
+    border-right: solid 2px black;
+}
+
+.lx_9050_nav_wp_gr_required {
+    width: 18%;
+    font-size: 54px;
+    line-height: 50px;
+    display: inline-block;
+    border-right: solid 2px black;
+}
+
+.lx_9050_nav_wp_gr_now {
+    width: 18%;
+    font-size: 54px;
+    line-height: 50px;
+    display: inline-block;
+}
+
+/* ********************************************** */
+/* ******* Task Message                 ********* */
+/* ********************************************** */
+
+#lx_9050_task_message {
+    position: absolute;
+    left: 5%;
+    top: 12%;
+    width: 90%;
+    padding: 5%;
+    text-align: center;
+    overflow: hidden;
+    color: black;
+    border: 4px solid black;
+    border-radius: 20px;
+    display: none;
+}
+
+.lx_9050_message_ok {
+    background-color: #ccff99;
+}
+
+.lx_9050_message_nok {
+    background-color: #ffcc99;
+}
+
+/* ********************************************** */
+/* ******* Task Page                    ********* */
+/* ********************************************** */
+
+#lx_9050_task_page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: black;
+    background-color: #3399ff;
+    display: none;
+}
+
+.lx_9050_task_page_small {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 24px;
+    vertical-align: 25%;
+}
+
+#lx_9050_task_page_header {
+    margin-top: 74px;
+    text-align: center;
+    font-size: 40px;
+    background-color: pink;
+}
+
+#lx_9050_task_page_title {
+    font-size: 40px;
+}
+
+#lx_9050_task_page_date {
+    font-size: 24px;
+}
+
+#lx_9050_task_page_content {
+    font-size: 28px;
+    background-color: #9999ff;
+}
+
+.lx_9050_task_page_wp {
+    background-color: #ff9933;
+    vertical-align: middle;
+    border: 2px solid black;
+}
+
+/* TASK PAGE WP TITLE */
+
+.lx_9050_task_page_wp_title {
+}
+
+.lx_9050_task_page_wp_name {
+    display: inline-block;
+    width: 75%;
+    padding-left: 5px;
+    border-right: 2px solid black;
+}
+
+.lx_9050_task_page_wp_alt {
+    min-width: 25%;
+    display: inline-block;
+    text-align: right;
+    vertical-align: top;
+}
+
+/* TASK PAGE WP LIMITS */
+
+.lx_9050_task_page_wp_limits {
+    text-align: right;
+    background-color: pink;
+}
+
+.lx_9050_task_page_wp_radius {
+    display: inline-block;
+}
+
+.lx_9050_task_page_wp_min_alt {
+    display: inline-block;
+    text-align: right;
+    vertical-align: top;
+    padding-left: 5px;
+}
+
+.lx_9050_task_page_wp_max_alt {
+    display: inline-block;
+    text-align: right;
+    vertical-align: top;
+    padding-left: 5px;
+}
+
+/* TASK PAGE BEARING DISTANCE */
+
+.lx_9050_task_page_wp_bearing_distance {
+    display: flex;
+}
+
+.lx_9050_task_page_wp_bearing {
+    flex: 0.7;
+    text-align: center;
+    display: inline-block;
+}
+
+.lx_9050_task_page_wp_distance {
+    flex: 1;
+    text-align: center;
+    display: inline-block;
+}
+
+.lx_9050_task_page_wp_completed {
+    flex: 1;
+}
+
+.lx_9050_task_page_wp_ok {
+    /* flex: 0.3; */
+    width: 75px;
+    padding: 0px 20px 0px 10px; /* top right bottom left */
+    margin: 0px 10px 4px 10px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+}
+
+#lx_9050_task_page_started {
+    width: 100%;
+    display: flex;
+    /*justify-content: flex-end;*/
+}
+
+#lx_9050_task_page_started_info {
+    flex: 1;
+    text-align: center;
+}
+
+#lx_9050_task_page_finished {
+    width: 100%;
+    display: flex;
+    /*justify-content: flex-end;*/
+}
+
+#lx_9050_task_page_finished_info {
+    flex: 1;
+    text-align: center;
+}
+
+#lx_9050_task_page_footer {
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    color: black;
+}
+
+#lx_9050_task_page_header_finished {
+    background-color: green;
+    border-radius: 10px;
+    flex: 1;
+    font-size: 32px;
+    color: white;
+    text-align: center;
+}
+
+/* ********************************************** */
+/* ******* Attitude Indicator           ********* */
+/* ********************************************** */
+
+lx_9050-element #lx_9050_ai {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 572px;
+    height: 572px;
+    overflow: hidden;
+    background: transparent;
+    display: none;
+}
+
+lx_9050-element #lx_9050_ai_static {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 572px;
+    height: 572px;
+    overflow: hidden;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_static.png");
+    background-repeat: no-repeat;
+}
+
+lx_9050-element #lx_9050_ai_bank {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 572px;
+    height: 572px;
+    background: transparent;
+    transform-origin: 286px 286px;
+    /* JS will add "transform: rotate(BANK_ANGLE_DEGREES)" */
+}
+
+lx_9050-element #lx_9050_ai_bank_arc {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 572px;
+    height: 572px;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_bank.png");
+    background-repeat: no-repeat;
+}
+
+lx_9050-element #lx_9050_ai_pitch {
+    position: absolute;
+    left: 171px;
+    top: 0px;
+    width: 230px;
+    height: 1835px;
+    background: transparent;
+}
+
+lx_9050-element #lx_9050_ai_pitch_sky {
+    position: absolute;
+    left: -300px;
+    top: 0px;
+    width: 830px;
+    height: 919px;
+    background-color: #00569d;
+}
+
+lx_9050-element #lx_9050_ai_pitch_earth {
+    position: absolute;
+    left: -300px;
+    top: 917px;
+    width: 830px;
+    height: 917px;
+    background-color: #48432e;
+}
+
+lx_9050-element #lx_9050_ai_pitch_rule {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 230px;
+    height: 1835px;
+    background-image: url("/Pages/VCockpit/Instruments/AS-33/lx_9050/images/ai_pitch.png");
+    background-repeat: no-repeat;
+}
+
+/* ********************************************** */
+/* ******* Button labels overlay        ********* */
+/* ********************************************** */
+
+lx_9050-element .lx_9050_button_overlay {
+    display: none;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 3px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 3px;
+    color: orange;
+    position: absolute;
+    background-color: black;
+}
+
+lx_9050-element #lx_9050_button_overlay_1 {
+    display: block;
+    left: 125px;
+    top: 15px;
+}
+
+lx_9050-element #lx_9050_button_overlay_3 {
+    display: block;
+    left: 360px;
+    top: 15px;
+}
+
+lx_9050-element #lx_9050_button_overlay_4 {
+    display: block;
+    left: 132px;
+    top: 994px;
+}
+
+lx_9050-element #lx_9050_button_overlay_6 {
+    display: block;
+    left: 375px;
+    top: 994px;
+}
+
+/* ********************************************** */
+/* ******* Knob labels overlay          ********* */
+/* ********************************************** */
+
+lx_9050-element .lx_9050_knob_overlay {
+    position: absolute;
+    /* max-width: 100px; */
+    /*height: 30px;*/
+    font-size: 22px;
+    text-align: center;
+    padding-top: 3px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 3px;
+    color: orange;
+    position: absolute;
+    background-color: black;
+    border-radius: 7px;
+    /* background: transparent; */
+}
+
+lx_9050-element #lx_9050_knob_overlay_1 {
+    left: 10px;
+    top: 22px;
+}
+
+lx_9050-element #lx_9050_knob_overlay_2 {
+    left: 460px;
+    top: 22px;
+}
+
+lx_9050-element #lx_9050_knob_overlay_3 {
+    left: 9px;
+    top: 974px;
+}
+
+lx_9050-element #lx_9050_knob_overlay_4 {
+    left: 470px;
+    top: 974px;
+}
+
+/* ********************************************** */
+/* ******* Settings                     ********* */
+/* ********************************************** */
+
+lx_9050-element #lx_9050_settings_page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 36px;
+    background-color: #FFE1B7;
+    color: black;
+    display: none;
+}
+
+lx_9050-element #lx_9050_settings_heading {
+    margin-top: 10px;
+    text-align: center;
+    background-color: #E1FFB7;
+    border-bottom: solid black 2px;
+    margin-bottom: 60px;
+}
+
+lx_9050-element .lx_9050_setting {
+    width: 100%;
+    margin: 10px;
+    background-color: #E1FFB7;
+    border-radius: 10px;
+    border: solid black 2px;
+}
+
+lx_9050-element .lx_9050_setting_name {
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+lx_9050-element .lx_9050_setting_options {
+    width: 45%;
+    display: inline-block;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: #E1FFB7;
+    border-left: solid 2px black;
+}
+
+lx_9050-element .lx_9050_setting_option {
+    text-align: center;
+}
+
+lx_9050-element .lx_9050_setting_option_current {
+    border: solid 6px black;
+    border-radius: 10px;
+}
+
+lx_9050-element .lx_9050_setting_option_selected {
+    background-color: #44cc44;
+}
+
+lx_9050-element #lx_9050_settings_knob_label {
+    position: absolute;
+    left: 105px;
+    top: 963px;
+    font-size: 22px;
+    padding-top: 3px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 3px;
+    color: orange;
+    background-color: black;
+    border-radius: 7px;
+}
+
+lx_9050-element #lx_9050_settings_button_label {
+    position: absolute;
+    left: 390px;
+    top: 998px;
+    font-size: 22px;
+    padding-top: 3px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 3px;
+    color: orange;
+    background-color: black;
+    border-radius: 7px;
+}
+
+/* ********************************************** */
+/* ******* Debug                        ********* */
+/* ********************************************** */
+
+#lx_9050_debug {
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    width: 90%;
+    height: 80%;
+    text-align: center;
+    color: black;
+    font-size: 25px;
+    padding: 6px;
+}
+
+.lx_9050_debug_str {
+    background-color: rgba(40,10,10,0.6);
+    color: orange;
+}

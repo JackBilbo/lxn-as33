@@ -1,0 +1,351 @@
+﻿<script type="text/html" id="LX_9050">
+    <div id="Mainframe">
+        <div id="battery_required">
+
+            <!-- ------------------------------- -->
+            <!-- MAP DISPLAY                     -->
+            <!-- ------------------------------- -->
+            <div id="TopDisplay">
+                <div class="loader"><div class="bar"></div></div>
+                <div id="Map"></div>
+
+                <div class="speedgauge">
+                    <div class="speedband">
+                        <div class="speedladder kmh">
+                            <div class="flap_indicator">
+                                <div class="flap_0">&nbsp;</div>
+                                <div class="flap_1">&nbsp;</div>
+                                <div class="flap_2">&nbsp;</div>
+                                <div class="flap_3">&nbsp;</div>
+                                <div class="flap_4">&nbsp;</div>
+                                <div class="flap_5">&nbsp;</div>
+                            </div>
+                            <div class="stfmarker"></div></div>
+                        <div class="speedladder kts">
+                            <div class="flap_indicator">
+                                <div class="flap_0">&nbsp;</div>
+                                <div class="flap_1">&nbsp;</div>
+                                <div class="flap_2">&nbsp;</div>
+                                <div class="flap_3">&nbsp;</div>
+                                <div class="flap_4">&nbsp;</div>
+                                <div class="flap_5">&nbsp;</div>
+                            </div>
+                            <div class="stfmarker"></div>
+                        </div>
+                        <div class="currentspeed"><span>0</span>
+                            <div class="currentspeed_arrow"></div>
+                        </div>
+                    </div>
+    
+                    
+                </div>
+        
+                <div id="hawk" class="active current">
+                    <div class="arrow" id="arrow_avg">
+                        <svg id="triangle" viewBox="0 0 100 100">
+                            <polygon points="50 100, 100 15, 0 15"/>
+                        </svg>
+                    </div>
+                    <div class="arrow" id="arrow_current">
+                        <svg id="triangle" viewBox="0 0 100 100">
+                            <polygon points="50 100, 100 15, 0 15"/>
+                        </svg>
+                    </div>
+                    <div id="vertical_indicator">
+                        <div id="hawkbar">
+                            <svg id="triangle" viewBox="0 0 100 100">
+                                <polygon points="50 100, 100 15, 0 15"/>
+                            </svg>
+                            <span class="value livedata" data-value="wind_vertical" showunit="no"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="glidericon">
+                    <div id="ac_hdg"></div>
+                    <div id="ac_trk"></div>
+                    <svg id="symbol" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M247.989 307.923l.88.88-118.47 118.42c-22.74 22.79-76.09 54.47-76.09 54.47a17.21 17.21 0 0 1-22.18-26.16l181.72-181.71zm231.86-275.77a17.21 17.21 0 0 0-24.33 0l-181.72 181.72 34.1 34.1.88.88 118.42-118.43c22.74-22.74 54.47-76.09 54.47-76.09a17.21 17.21 0 0 0-1.82-22.18zm-52.44 319.24a32.78 32.78 0 0 0-23.25 9.62l-43.17 43.17a32.89 32.89 0 0 0 0 46.51l6 6 89.69-89.68-6-6a32.78 32.78 0 0 0-23.27-9.62zm-46.8 10.55l-18.69 18.69c-40.87-40.64-64.22-62-102.66-84l-39.27-39.32c-64-64-65.14-86.41-57.12-94.44 1.91-1.91 4.76-3.29 9-3.29 12.64 0 37.47 12.43 85.46 60.41l39.29 39.29c21.95 38.47 43.37 61.8 83.99 102.66zm-156.89-162.82c-34.3-29.84-49.85-33.11-53.79-29.17-2.7 2.7-1.91 8.38 2.33 16.9 4.91 9.84 13.88 22.21 26.79 36.94z"/></svg>
+                </div>
+
+                <a href="#" class="mapbutton" id="multiplayer">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 106.06 122.88" style="enable-background:new 0 0 106.06 122.88" xml:space="preserve"><g><path d="M0,4.16C0,1.86,1.86,0,4.16,0c2.3,0,4.16,1.86,4.16,4.16v6.34h94.62c1.72,0,3.12,1.4,3.12,3.12v66.8 c0,1.72-1.4,3.12-3.12,3.12H8.32v35.18c0,2.3-1.86,4.16-4.16,4.16c-2.3,0-4.16-1.86-4.16-4.16V4.16L0,4.16z M84.42,55.3h15.4V37.73 h-15.4V55.3L84.42,55.3z M82.06,77.3V57.66H64.94V77.3H82.06L82.06,77.3z M82.06,35.37V16.74H64.94v18.63H82.06L82.06,35.37z M43.1,77.3V57.66H25.97V77.3H43.1L43.1,77.3z M45.46,55.3h17.12V37.73H45.46V55.3L45.46,55.3z M43.1,35.37V16.74H25.97v18.63H43.1 L43.1,35.37z M23.62,55.3V37.73H8.43V55.3H23.62L23.62,55.3z"/></g></svg>
+                </a>
+
+            </div>
+
+            <!-- ------------------------------- -->
+            <!-- NAV DATA DISPLAY                -->
+            <!-- ------------------------------- -->
+            <div id="lx_9050_nav">
+                <div id="lx_9050_nav_arrows">
+                    <div id="lx_9050_nav_arrow_minus_3"></div>
+                    <div id="lx_9050_nav_arrow_minus_2"></div>
+                    <div id="lx_9050_nav_arrow_minus_1"></div>
+                    <div id="lx_9050_nav_arrow_0"></div>
+                    <div id="lx_9050_nav_arrow_plus_1"></div>
+                    <div id="lx_9050_nav_arrow_plus_2"></div>
+                    <div id="lx_9050_nav_arrow_plus_3"></div>
+                </div>
+                <div id="lx_9050_nav_waypoints"></div>
+            </div>
+
+            <!-- ------------------------------- -->
+            <!-- TASK PAGE DISPLAY               -->
+            <!-- ------------------------------- -->
+            <div id="lx_9050_task_page">
+                <div id="lx_9050_task_page_header">TASK HEADER</div>
+                <div id="lx_9050_task_page_header_finished">FINISHED</div>
+                <div id="lx_9050_task_page_content">CONTENT</div>
+                <div id="lx_9050_task_page_footer">FOOTER</div>
+            </div>
+
+            <!-- ------------------------------- -->
+            <!-- ATTITUDE INDICATOR              -->
+            <!-- ------------------------------- -->
+            <div id="lx_9050_ai">
+                <div id="lx_9050_ai_bank">
+                    <div id="lx_9050_ai_pitch">
+                        <div id="lx_9050_ai_pitch_sky"></div>
+                        <div id="lx_9050_ai_pitch_earth"></div>
+                        <div id="lx_9050_ai_pitch_rule"></div>
+                    </div>
+                    <div id="lx_9050_ai_bank_arc"></div>
+                </div>
+                <div id="lx_9050_ai_static"></div>
+            </div>
+
+            <!-- ------------------------------- -->
+            <!-- THERMALLING DISPLAY             -->
+            <!-- ------------------------------- -->
+            <div id="thermalling_display">
+                <div id="thermalling_display_left">
+                    <div id="thermalling_display_wind">
+                        <div id="thermalling_display_wind_speed">10</div>
+                        <div id="thermalling_display_wind_value">
+                            <!-- HERE WE DRAW WIND ARROW TO ROTATE IN JS -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+                              <g id="thermalling_display_wind_line" transform="rotate(180,50,50)">
+                                  <path d="M50,90 l-15,-30 h11 v-50 h8 v50 h11 z" stroke="#000" fill="#000"/>
+                              </g>
+                            </svg>
+                        </div>
+                        <div id="thermalling_display_wind_units">XXXXX</div>
+                    </div>
+                    <div id="thermalling_display_l_top">
+                        <div class="thermalling_display_l_heading">CLIMB</div>
+                        <div id="thermalling_display_l_top_value" class="thermalling_display_l_value">X.X</div>
+                    </div>
+                    <div id="thermalling_display_l_middle">
+                        <div class="thermalling_display_l_heading">TRU AVG</div>
+                        <div id="thermalling_display_l_middle_value" class="thermalling_display_l_value">- -</div>
+                    </div>
+                    <div id="thermalling_display_l_bottom">
+                        <div class="thermalling_display_l_heading">MC</div>
+                        <div id="thermalling_display_l_bottom_value" class="thermalling_display_l_value">X.X</div>
+                        <div id="thermalling_display_l_bottom_units" class="thermalling_display_l_units">XXX</div>
+                    </div>
+                </div>
+                <div id="thermalling_display_main">
+                    <svg id="thermalling_display_blobs_svg" width="470" height="460" xmlns="http://www.w3.org/2000/svg">
+                        <g id="thermalling_display_wp_bearing" transform="rotate(15,235,230)">
+                            <path d="M235,230 l0,-280" stroke="#000" fill="#000" stroke-width="2" stroke-dasharray="10 5"/>
+                        </g>
+                    </svg>
+                    <div id="thermalling_display_north_up">&#8607;<br/>N</div>
+                    <div id="thermalling_display_glider">
+                        <!-- HERE WE DRAW GLIDE TO ROTATE IN JS -->
+                        <svg width="470" height="460" xmlns="http://www.w3.org/2000/svg">
+                            <g id="thermalling_display_glider_svg" transform="rotate(30,235,230)">
+                                  <path d="M235,214 l4,16 h26 l28,4 v4 h-54 l-2,32 h6 v6 h-16 v-6 h6 l-2,-32 h-54 v-4 l28,-4 h26 z" stroke="#000" fill="#ffffff"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div id="thermalling_display_bottom">
+                    <!-- Maccready line -->
+                    <svg id="thermalling_display_mc_line_svg" width="572" height="112" xmlns="http://www.w3.org/2000/svg">
+                        <g id="thermalling_display_bottom_mc" transform="translate(0,0)">
+                            <text x="5" y="-2">MC</text>
+                            <path d="M35,0 h530" stroke="#000" fill="#000" stroke-width="2" stroke-dasharray="10 5"/>
+                        </g>
+                    </svg>
+                    <!-- horizontal zero axis -->
+                    <svg id="thermalling_display_0_line_svg" width="572" height="112" xmlns="http://www.w3.org/2000/svg">
+                        <text x="5" y="100">0</text>
+                        <path d="M20,85 h545" stroke="#000" fill="#000"/>
+                    </svg>
+                    <!-- CLIMB STRENGTH GRAPH -->
+                    <svg class="thermalling_display_abs" width="572" height="112" xmlns="http://www.w3.org/2000/svg">
+                        <path id="thermalling_display_graph_svg" stroke="#000" stroke-width="2" fill-opacity="0" />
+                    </svg>
+                    <!-- THERMALS BARS GRAPH -->
+                    <svg class="thermalling_display_abs" width="572" height="112" xmlns="http://www.w3.org/2000/svg">
+                        <path id="thermalling_display_bars_svg" stroke="green" stroke-width="3" fill="green" />
+                    </svg>
+                    <!-- bars | graph vertical dividing line -->
+                    <svg id="thermalling_display_bars_graph_line_svg" width="572" height="112" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M402,0 v112" stroke="#000" fill="#000"/>
+                    </svg>
+                </div>
+            </div> <!-- end thermalling_display -->
+
+            <!-- ------------------------------- -->
+            <!-- TASK MESSAGE                    -->
+            <!-- ------------------------------- -->
+            <div id="lx_9050_task_message"></div>
+
+            <!-- ------------------------------- -->
+            <!-- BUTTON AND KNOB OVERLAYS        -->
+            <!-- ------------------------------- -->
+            <div id="lx_9050_button_overlay_1" class="lx_9050_button_overlay">AI/Therm</div>
+            <div id="lx_9050_button_overlay_2" class="lx_9050_button_overlay"></div>
+            <div id="lx_9050_button_overlay_3" class="lx_9050_button_overlay">Center<br/>Plane</div>
+            <div id="lx_9050_button_overlay_4" class="lx_9050_button_overlay">Task</div>
+            <div id="lx_9050_button_overlay_5" class="lx_9050_button_overlay"></div>
+            <div id="lx_9050_button_overlay_6" class="lx_9050_button_overlay">Settings</div>
+            <div id="lx_9050_knob_overlay_1" class="lx_9050_knob_overlay">North Up</div>
+            <div id="lx_9050_knob_overlay_2" class="lx_9050_knob_overlay">Zoom</div>
+            <div id="lx_9050_knob_overlay_3" class="lx_9050_knob_overlay">Nav&nbsp;Display</div>
+            <div id="lx_9050_knob_overlay_4" class="lx_9050_knob_overlay">Waypoint</div>
+
+            <!-- ------------------------------- -->
+            <!-- SETTINGS PAGE DISPLAY           -->
+            <!-- ------------------------------- -->
+            <div id="lx_9050_settings_page">
+                <div id="lx_9050_settings_heading">SETTINGS V1.6.2.P</div>
+                <div class="lx_9050_setting">
+                    <div class="lx_9050_setting_name">Altitude Units</div>
+                    <div class="lx_9050_setting_options">
+                        <div id="lx_9050_altitude_units_meters" class="lx_9050_setting_option lx_9050_setting_option_selected">Meters</div>
+                        <div id="lx_9050_altitude_units_feet" class="lx_9050_setting_option">Feet</div>
+                    </div>
+                </div>
+                <div class="lx_9050_setting">
+                    <div class="lx_9050_setting_name">Speed Units</div>
+                    <div class="lx_9050_setting_options">
+                        <div id="lx_9050_speed_units_kph" class="lx_9050_setting_option lx_9050_setting_option_selected">Km/h</div>
+                        <div id="lx_9050_speed_units_knots" class="lx_9050_setting_option">Knots</div>
+                    </div>
+                </div>
+                <div class="lx_9050_setting">
+                    <div class="lx_9050_setting_name">Distance Units</div>
+                    <div class="lx_9050_setting_options">
+                        <div id="lx_9050_distance_units_km" class="lx_9050_setting_option lx_9050_setting_option_selected">Km</div>
+                        <div id="lx_9050_distance_units_miles" class="lx_9050_setting_option">Miles</div>
+                    </div>
+                </div>
+                <div class="lx_9050_setting">
+                    <div class="lx_9050_setting_name">Climb Units</div>
+                    <div class="lx_9050_setting_options">
+                        <div id="lx_9050_climb_units_ms" class="lx_9050_setting_option lx_9050_setting_option_selected">m/s</div>
+                        <div id="lx_9050_climb_units_knots" class="lx_9050_setting_option">Knots</div>
+                    </div>
+                </div>
+                <div class="lx_9050_setting">
+                    <div class="lx_9050_setting_name">Arrival Height</div>
+                    <div class="lx_9050_setting_options">
+                        <div id="lx_9050_arrival_height_msl" class="lx_9050_setting_option lx_9050_setting_option_selected">MSL</div>
+                        <div id="lx_9050_arrival_height_agl" class="lx_9050_setting_option">AGL</div>
+                    </div>
+                </div>
+                <div class="lx_9050_setting">
+                    <div class="lx_9050_setting_name">Current WP Nav Data Boxes</div>
+                    <div class="lx_9050_setting_options">
+                        <div id="lx_9050_nav_boxes_4" class="lx_9050_setting_option lx_9050_setting_option_selected">4</div>
+                        <div id="lx_9050_nav_boxes_8" class="lx_9050_setting_option">8</div>
+                    </div>
+                </div>
+                <div class="lx_9050_setting">
+                    <div class="lx_9050_setting_name">Reset to defaults</div>
+                    <div class="lx_9050_setting_options">
+                        <div id="lx_9050_reset_no" class="lx_9050_setting_option lx_9050_setting_option_selected">No</div>
+                        <div id="lx_9050_reset_yes" class="lx_9050_setting_option">Yes</div>
+                    </div>
+                </div>
+                <div id="lx_9050_settings_knob_label">
+                    TURN KNOB TO SCROLL, CLICK TO SELECT:
+                </div>
+                <div id="lx_9050_settings_button_label">
+                    CLOSE:
+                </div>
+            </div> <!-- end Settings Page -->
+
+
+            <!-- Multiplayer Page -->
+
+            <div class="content mp notConnected noEvent">
+								
+                <p id="mp_info"></p>
+                <table id="userlist">
+                    <thead>
+                        <th>P.</th><th>User</th><th>Alt</th><th>Avg</th><th class='alignright'>T./Dst</th>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+                <div class="configpanel_buttons">
+                    <a href="#" id="leave_event" class="servicelink">Leave</a>
+                </div>
+                
+                <div id="events">
+                    <p class="eventheader">Click to join or create an event</p>
+                    <ul id="eventlist">
+                        
+                    </ul>
+                    <a href="#" id="addEventLink">Add new flight</a>
+                    <form id="addEvent" class="off">
+                        <input type="text" name="eventtitle" id="eventtitle" placeholder="Flight title">
+                        <div class="timeinput">
+                            <label>Task start UTC:</label><input type="text" name="utchours" id="utchours">:<input type="text" name="utcmin" id="utcmin">
+                        </div>
+                        <input type="submit" value="Create Flight">
+                    </form>
+
+                    <div class="configpanel_buttons">
+                        <a href="#" id="disconnect" class="servicelink">Disconnect</a>
+                    </div>
+                </div>
+
+                <div id="mp_mainswitch">
+                    <p class="eventheader">Multiplayer Event Engine:</p>
+                    <form id="mpform">
+                        <input type="text" id="username" placeholder="Username">
+                        <button id="mpformsubmit">CONNECT</button>
+                    </form>
+                    <p class="mainmessage"></p>
+                </div>
+            </div>
+
+            <!-- end MP -->
+
+        </div> <!-- end battery_required -->
+
+        <!-- ------------------------------- -->
+        <!-- DEBUG AND BETA INFO             -->
+        <!-- ------------------------------- -->
+        <div id="lx_9050_debug"></div>
+    </div> <!-- end Mainframe -->
+</script>
+
+<link rel="stylesheet" href="lx_9050.css?ph" />
+<link rel="stylesheet" href="jbb.css?" />
+<link rel="stylesheet" href="soarnet.css?" />
+<link rel="stylesheet" href="thermalling_display/thermalling_display.css?pi" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""/>
+
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+
+<script type="text/html" import-script="/JS/SimPlane.js"></script>
+<script type="text/html" import-script="/JS/dataStorage.js"></script>
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html?ad"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/AS-33/b21_includes/geo.js?ai"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/AS-33/lx_9050/thermalling_display/thermalling_display.js?ai"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.js?anv"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/AS-33/lx_9050/navmap_topomap.js?anv"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/AS-33/lx_9050/jbb.js?"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet.js?"></script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet_class.js?"></script>
