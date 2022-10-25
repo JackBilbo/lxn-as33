@@ -22,9 +22,9 @@ class navmap {
         this.WP_SELECTED_COLOR = "#FFFF66";
         this.WP_NON_TASK_COLOR = "#999999";
 
-        this.map_zoom = 14;
-        this.map_maxzoom = 17;
-        this.map_minzoom = 8;
+        this.map_zoom = 12;
+        this.map_maxzoom = 16;
+        this.map_minzoom = 7;
         this.map_rotation = "northup";
         this.taskispainted = false;
         this.mapwaypoints = [];
@@ -129,10 +129,10 @@ class navmap {
 
             if(this.map_rotation == "northup") {
                 document.getElementById("glidericon").style.transform = "rotate(" + this.instrument.PLANE_HEADING_DEG + "deg)";
-                document.getElementById("Map").style.transform = "rotate(0deg) scale(2)";
+                document.getElementById("Map").style.transform = "rotate(0deg) scale(2.5)";
             } else {
                 document.getElementById("glidericon").style.transform = "rotate(0deg)";
-                document.getElementById("Map").style.transform = "rotate(-" + this.instrument.PLANE_HEADING_DEG + "deg) scale(2)";
+                document.getElementById("Map").style.transform = "rotate(-" + this.instrument.PLANE_HEADING_DEG + "deg) scale(2.5)";
             }
 
             document.getElementById("ac_trk").style.transform = "rotate(" + (this.instrument.PLANE_TRACK_DEG - this.instrument.PLANE_HEADING_DEG) + "deg)"; 
@@ -553,11 +553,25 @@ class navmap {
         let long = parseFloat(SimVar.GetSimVarValue("A:PLANE LONGITUDE", "degrees longitude"));
         TOPOMAP = L.map('Map').setView([lat,long], this.map_zoom);
                 
-        /* https://a.tile.opentopomap.org/{z}/{x}/{y}.png */
+        /* http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z} - https://a.tile.opentopomap.org/{z}/{x}/{y}.png */
         L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
                         maxZoom: this.map_maxzoom,
                         minZoom: this.map_minzoom,
                         subdomains:['mt0','mt1','mt2','mt3'],
+                        keyboard: false,
+                        dragging: false,
+                        zoomControl: false,
+                        boxZoom: false,
+                        doubleClickZoom: false,
+                        scrollWheelZoom: false,
+                        tap: false,
+                        touchZoom: false
+        }).addTo(TOPOMAP);
+
+        L.tileLayer('https://{s}.api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=7beacc9257a32efe75a26bcbcb222874', {
+                        maxZoom: this.map_maxzoom,
+                        minZoom: this.map_minzoom,
+                        subdomains:['a','b','c'],
                         keyboard: false,
                         dragging: false,
                         zoomControl: false,

@@ -15,13 +15,26 @@ class jbb {
                 mpelement.style.display = "block";
             }
         })
+
+        document.querySelector(".speedgauge").addEventListener("click", (e)=> {
+            document.querySelector(".speedgauge").classList.toggle("isHidden");
+        });
+
+        document.querySelector("#glidericon #symbol").addEventListener("click", (e)=> {
+            console.log("CLICK");
+            document.querySelector("#hawk").classList.toggle("isHidden");
+        })
     }
 
     update() {
-
-        this.update_speedgauge();
-        this.jbb_update_hawk();
-
+        if(!document.querySelector(".speedgauge").classList.contains("isHidden")) {
+            this.update_speedgauge();
+        }
+        
+        if(!document.querySelector("#hawk").classList.contains("isHidden")) {
+            this.jbb_update_hawk();
+        }
+        
         this.currentBallast = Math.round(SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:2", "kg") + SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:3", "kg") + SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:4", "kg") + SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:5", "kg")  + SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:6", "kg"))
     }
 
@@ -168,16 +181,17 @@ class jbb {
         }
         
         let current_wind_speed = this.instrument.WIND_SPEED_MS * this.instrument.MS_TO_KNOTS;
-        this.jbb_avg_wind_speed = ((0.99 * this.jbb_avg_wind_speed) + (0.01 * current_wind_speed));
+        this.hawkwindspeed = this.hawkwindspeed != null ? (0.9 * this.hawkwindspeed) + (0.1 * current_wind_speed) : current_wind_speed; 
+        this.jbb_avg_wind_speed = this.jbb_avg_wind_speed != null ? ((0.99 * this.jbb_avg_wind_speed) + (0.01 * this.hawkwindspeed)) : this.hawkwindspeed;
 
         document.querySelector("#hawk #arrow_avg").style.transform = "rotate(" + averageindicator + "deg)";
         document.querySelector("#hawk #arrow_current").style.transform = "rotate(" + current_wind_direction + "deg)";
 
-        let wv = Math.min(600, current_wind_speed * 10 + 150);
+        let wv = Math.min(500, this.hawkwindspeed * 10 + 85);
         document.querySelector("#hawk #arrow_current").style.height = wv +"px";
         document.querySelector("#hawk #arrow_current").style.top = -wv/2 +"px";
 
-        let wvavg = Math.min(600, this.jbb_avg_wind_speed * 10 + 150);
+        let wvavg = Math.min(500, this.jbb_avg_wind_speed * 10 + 85);
         document.querySelector("#hawk #arrow_avg").style.height = wvavg +"px";
         document.querySelector("#hawk #arrow_avg").style.top = -wvavg/2 +"px";
         
@@ -193,8 +207,8 @@ class jbb {
             document.querySelector("#hawkbar").classList.remove("negative");
         }
 
-        document.querySelector("#hawkbar").style.height =  Math.abs(verticalwind * 18) + "px";
-        document.querySelector("#hawkbar .value").innerText = Math.abs((this.instrument.climb_units == "ms"? verticalwind * 0.51444 : verticalwind)).toFixed(1);
+        document.querySelector("#hawkbar").style.height =  Math.abs(this.avg_vert_wind * 18) + "px";
+        document.querySelector("#hawkbar .value").innerText = Math.abs((this.instrument.climb_units == "ms"? this.avg_vert_wind * 0.51444 : this.avg_vert_wind)).toFixed(1);
     }
 
 }
