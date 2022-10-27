@@ -187,11 +187,11 @@ class jbb {
         document.querySelector("#hawk #arrow_avg").style.transform = "rotate(" + averageindicator + "deg)";
         document.querySelector("#hawk #arrow_current").style.transform = "rotate(" + current_wind_direction + "deg)";
 
-        let wv = Math.min(500, this.hawkwindspeed * 10 + 85);
+        let wv = Math.min(400, this.hawkwindspeed * 10 + 85);
         document.querySelector("#hawk #arrow_current").style.height = wv +"px";
         document.querySelector("#hawk #arrow_current").style.top = -wv/2 +"px";
 
-        let wvavg = Math.min(500, this.jbb_avg_wind_speed * 10 + 85);
+        let wvavg = Math.min(400, this.jbb_avg_wind_speed * 10 + 85);
         document.querySelector("#hawk #arrow_avg").style.height = wvavg +"px";
         document.querySelector("#hawk #arrow_avg").style.top = -wvavg/2 +"px";
         
