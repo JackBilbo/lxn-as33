@@ -170,8 +170,8 @@ class jbb {
 
     jbb_update_hawk() {
         let current_wind_direction = this.instrument.WIND_DIRECTION_DEG;
-
-        this.jbb_avg_wind_direction = this.jbb_avg_wind_direction != null ? ((0.99 * this.jbb_avg_wind_direction) + (0.01 * current_wind_direction)) : current_wind_direction;
+        this.hawkwinddir = this.hawkwinddir != null ? (0.9 * this.hawkwinddir) + (0.1 * current_wind_direction) : current_wind_direction;
+        this.jbb_avg_wind_direction = this.jbb_avg_wind_direction != null ? ((0.99 * this.jbb_avg_wind_direction) + (0.01 * this.hawkwinddir)) : this.hawkwinddir;
 
         let averageindicator = this.jbb_avg_wind_direction;
 
@@ -185,7 +185,7 @@ class jbb {
         this.jbb_avg_wind_speed = this.jbb_avg_wind_speed != null ? ((0.99 * this.jbb_avg_wind_speed) + (0.01 * this.hawkwindspeed)) : this.hawkwindspeed;
 
         document.querySelector("#hawk #arrow_avg").style.transform = "rotate(" + averageindicator + "deg)";
-        document.querySelector("#hawk #arrow_current").style.transform = "rotate(" + current_wind_direction + "deg)";
+        document.querySelector("#hawk #arrow_current").style.transform = "rotate(" + this.hawkwinddir + "deg)";
 
         let wv = Math.min(400, this.hawkwindspeed * 10 + 85);
         document.querySelector("#hawk #arrow_current").style.height = wv +"px";
