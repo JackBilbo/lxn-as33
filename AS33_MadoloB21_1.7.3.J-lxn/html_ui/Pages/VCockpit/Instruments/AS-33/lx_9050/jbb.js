@@ -142,7 +142,7 @@ class jbb {
 
     setFlapSpeeds() {
         let weightfactor = this.currentBallast / 171 * 100; // this.vars.ballast_pct.value;
-        let flapspeeds_kmh = [[300,300],[167,197],[143,174],[117,147],[99,127],[60,108] ]
+        let flapspeeds_kmh = [[300,300],[167,197],[143,174],[117,147],[99,127],[87,108] ]
         let flapspeeds_kts = [[160,160],[90,107],[77,94],[62,79],[52,68],[30,58] ]
         let lastspeed_kmh = 60;
         let lastspeed_kts = 30;
