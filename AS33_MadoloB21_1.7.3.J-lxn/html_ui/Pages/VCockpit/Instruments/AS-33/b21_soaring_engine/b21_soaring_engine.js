@@ -1,18 +1,18 @@
 // b21_soaring_engine
 
-var b21_soaring_engine_version = "1.11";
+var b21_soaring_engine_version = "1.13";
 
 /*
     Local vars:
     "Z:B21_TE_MS"                               - READ - From model .xml - vario total energy in meters per second (sink -ve)
-    "L:B21_MACCREADY_MS", "meters per second"   - READ - Current maccready setting meters per second
+    "Z:B21_MACCREADY_MS", "meters per second"   - READ - From lx_s100.js - Current maccready setting meters per second
 
-    "L:B21_NETTO_MS"                            - WRITE - netto vario reading in meters per second
-    "L:B21_STF_SPEED_0_MS","meters per second"  - WRITE - Current maccready speed for zero sink meters per second
-    "L:B21_STF_SINK_0_MS","meters per second"   - WRITE - Glider polar sink rate at current zero-sink speed-to-fly meters per second
-    "L:B21_STF_SPEED_MS","meters per second"    - WRITE - Current maccready speed
-    "L:B21_STF_CLIMB_MS", "meters per second"   - WRITE - STF climb equivalent based on airspeed - stf delta
-    "L:B21_VARIO_AVG_MS", "meters per second"   - WRITE - vario averager reading (ms)
+    "Z:B21_NETTO_MS"                            - WRITE - netto vario reading in meters per second
+    "Z:B21_STF_SPEED_0_MS","meters per second"  - WRITE - Current maccready speed for zero sink meters per second
+    "Z:B21_STF_SINK_0_MS","meters per second"   - WRITE - Glider polar sink rate at current zero-sink speed-to-fly meters per second
+    "Z:B21_STF_SPEED_MS","meters per second"    - WRITE - Current maccready speed
+    "Z:B21_STF_CLIMB_MS", "meters per second"   - WRITE - STF climb equivalent based on airspeed - stf delta
+    "Z:B21_VARIO_AVG_MS", "meters per second"   - WRITE - vario averager reading (ms)
 */
 
 /* Client methods e.g. called by basic_nav / lx_9050
@@ -296,15 +296,11 @@ class b21_soaring_engine_class extends BaseInstrument {
             this.WIND_SPEED_MS = SimVar.GetSimVarValue("A:AMBIENT WIND VELOCITY", "meters per second");
         }
         this.WIND_SPEED_MS = 0.99 * this.WIND_SPEED_MS  + 0.01 * SimVar.GetSimVarValue("A:AMBIENT WIND VELOCITY", "meters per second");
-        //DEBUG
-        SimVar.SetSimVarValue("L:B21_GLIDE_WIND_MS","meters per second",this.WIND_SPEED_MS);
-        SimVar.SetSimVarValue("L:B21_GLIDE_WIND_DEG","degrees",this.WIND_DIRECTION_DEG);
 
-        // L: vars
         // Total Energy from model.xml
         this.TE_MS = SimVar.GetSimVarValue("Z:B21_TE_MS", "number"); //te_ms;
         // Macccready setting from pilot input
-        this.MACCREADY_MS = SimVar.GetSimVarValue("L:B21_MACCREADY_MS", "meters per second");
+        this.MACCREADY_MS = SimVar.GetSimVarValue("Z:B21_MACCREADY_MS", "meters per second");
     }
 
     // update this.pause_mode
@@ -396,7 +392,7 @@ class b21_soaring_engine_class extends BaseInstrument {
     }
 
     // **************************************************************************************************
-    // Set "L:B21_NETTO_MS, meters per second"  climb rate
+    // Set "Z:B21_NETTO_MS, meters per second"  climb rate
     // Netto is simple the TE climb rate with the natural sink of the aircraft (from the polar) removed
     // **************************************************************************************************
 
@@ -427,7 +423,7 @@ class b21_soaring_engine_class extends BaseInstrument {
             this.NETTO_MS = this.NETTO_MS * effective_speed_ms / 10;
         }
         this.ex = 66;
-        SimVar.SetSimVarValue("L:B21_NETTO_MS", "meters per second", this.NETTO_MS);
+        SimVar.SetSimVarValue("Z:B21_NETTO_MS", "meters per second", this.NETTO_MS);
     }
 
     // ********************************************************************
@@ -467,7 +463,7 @@ class b21_soaring_engine_class extends BaseInstrument {
         this.ex = "va.1";
 
         //DEBUG we can initialize this after netto goes positive for a better climb avg
-        SimVar.SetSimVarValue("L:B21_VARIO_AVG_MS", "meters per second", this.vario_avg_te_ms);
+        SimVar.SetSimVarValue("Z:B21_VARIO_AVG_MS", "meters per second", this.vario_avg_te_ms);
     }
 
     // *********************************************
@@ -478,9 +474,9 @@ class b21_soaring_engine_class extends BaseInstrument {
     //      this.NETTO_MS
     //      this.MACCREADY_MS
     // Writes:
-    //      L:B21_STF_SPEED_MS : Recommended speed-to-fly (meters per second)
-    //      L:B21_STF_SPEED_0_MS : the speed-to-fly if ZERO sink
-    //      L:B21_STF_SINK_0_MS  : the polar sink rate at (ZERO SINK speed-to-fly)
+    //      Z:B21_STF_SPEED_MS : Recommended speed-to-fly (meters per second)
+    //      Z:B21_STF_SPEED_0_MS : the speed-to-fly if ZERO sink
+    //      Z:B21_STF_SINK_0_MS  : the polar sink rate at (ZERO SINK speed-to-fly)
 
     // *********************************************
 
@@ -523,10 +519,10 @@ class b21_soaring_engine_class extends BaseInstrument {
             this.stf_smoothed_ms = this.stf_smoothed_ms * 0.98 + stf_ms * 0.02;
         }
 
-        SimVar.SetSimVarValue("L:B21_STF_SPEED_MS", "meters per second", this.stf_smoothed_ms);
+        SimVar.SetSimVarValue("Z:B21_STF_SPEED_MS", "meters per second", this.stf_smoothed_ms);
 
         let stf_climb_ms = (this.AIRSPEED_MS - stf_ms) / 5; // so 25m/s airspeed delta ~= 5 m/s climb
-        SimVar.SetSimVarValue("L:B21_STF_CLIMB_MS", "meters per second", stf_climb_ms);
+        SimVar.SetSimVarValue("Z:B21_STF_CLIMB_MS", "meters per second", stf_climb_ms);
 
 
         // Only update number every 2 seconds
@@ -538,12 +534,12 @@ class b21_soaring_engine_class extends BaseInstrument {
             this.ex = "stf.60";
             this.STF_SPEED_0_MS = this.stf_airspeed(0);
 
-            // L:B21_STF_SPEED_0_MS : the speed-to-fly if ZERO sink
-            // L:B21_STF_SINK_0_MS  : the polar sink rate at (ZERO SINK speed-to-fly)
-            SimVar.SetSimVarValue("L:B21_STF_SPEED_0_MS", "meters per second", this.STF_SPEED_0_MS);
+            // Z:B21_STF_SPEED_0_MS : the speed-to-fly if ZERO sink
+            // Z:B21_STF_SINK_0_MS  : the polar sink rate at (ZERO SINK speed-to-fly)
+            SimVar.SetSimVarValue("Z:B21_STF_SPEED_0_MS", "meters per second", this.STF_SPEED_0_MS);
             this.ex = "stf.62";
             this.STF_SINK_0_MS = this.polar_sink(this.STF_SPEED_0_MS);
-            SimVar.SetSimVarValue("L:B21_STF_SINK_0_MS", "meters per second", this.STF_SINK_0_MS);
+            SimVar.SetSimVarValue("Z:B21_STF_SINK_0_MS", "meters per second", this.STF_SINK_0_MS);
             this.ex = "stf.64";
         }
 
@@ -1281,7 +1277,7 @@ class Task {
 
         return task_speed_ms / 0.51444;
     }
-    
+
     // Return current waypoint object
     current_wp() {
         if (this.index < this.waypoints.length) {

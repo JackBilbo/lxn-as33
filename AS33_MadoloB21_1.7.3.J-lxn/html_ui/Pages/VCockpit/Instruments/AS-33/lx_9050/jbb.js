@@ -174,18 +174,13 @@ class jbb {
         this.jbb_avg_wind_direction = this.jbb_avg_wind_direction != null ? ((0.99 * this.jbb_avg_wind_direction) + (0.01 * this.hawkwinddir)) : this.hawkwinddir;
 
         let averageindicator = this.jbb_avg_wind_direction;
-
-        if(NAVMAP.map_rotation == "trackup") {
-            current_wind_direction = current_wind_direction - this.instrument.PLANE_HEADING_DEG;
-            averageindicator = averageindicator - this.instrument.PLANE_HEADING_DEG;
-        }
-        
+       
         let current_wind_speed = this.instrument.WIND_SPEED_MS * this.instrument.MS_TO_KNOTS;
         this.hawkwindspeed = this.hawkwindspeed != null ? (0.9 * this.hawkwindspeed) + (0.1 * current_wind_speed) : current_wind_speed; 
         this.jbb_avg_wind_speed = this.jbb_avg_wind_speed != null ? ((0.99 * this.jbb_avg_wind_speed) + (0.01 * this.hawkwindspeed)) : this.hawkwindspeed;
 
-        document.querySelector("#hawk #arrow_avg").style.transform = "rotate(" + averageindicator + "deg)";
-        document.querySelector("#hawk #arrow_current").style.transform = "rotate(" + this.hawkwinddir + "deg)";
+        document.querySelector("#hawk #arrow_avg").style.transform = "rotate(" + (NAVMAP.map_rotation == "trackup" ? averageindicator - this.instrument.PLANE_HEADING_DEG : averageindicator) + "deg)";
+        document.querySelector("#hawk #arrow_current").style.transform = "rotate(" + (NAVMAP.map_rotation == "trackup" ? this.hawkwinddir - this.instrument.PLANE_HEADING_DEG : this.hawkwinddir) + "deg)";
 
         let wv = Math.min(400, this.hawkwindspeed * 10 + 85);
         document.querySelector("#hawk #arrow_current").style.height = wv +"px";
