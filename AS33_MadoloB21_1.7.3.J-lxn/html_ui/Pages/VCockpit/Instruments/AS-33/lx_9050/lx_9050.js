@@ -7,9 +7,9 @@
             -- which (as .navMap) uses SvgMap class from \Pages\VCockpit\Instruments\Shared\Map\Svg
 
     Local vars:
-        "L:B21_STF_SPEED_0_MS","meters per second"  - READ - From b21_soaring_engine - Current speed-to-fly at zero sink meters per second
-        "L:B21_STF_SINK_0_MS","meters per second"   - READ - From b21_soaring_engine - Polar sink rate meters per second at the zero sink speed-to-fly
-        "L:B21_GLIDE_RATIO","number"                - READ - From model XML - Current L/D glide ratio
+        "Z:B21_STF_SPEED_0_MS","meters per second"  - READ - From b21_soaring_engine - Current speed-to-fly at zero sink meters per second
+        "Z:B21_STF_SINK_0_MS","meters per second"   - READ - From b21_soaring_engine - Polar sink rate meters per second at the zero sink speed-to-fly
+        "Z:B21_GLIDE_RATIO","number"                - READ - From model XML - Current L/D glide ratio
 
         "Z:B21_SETTING_CHANGE","number"             - READ/WRITE - From other gauges - toggles 0/1 when settings change
 
@@ -32,8 +32,8 @@
         "Z:B21_LX_9050_DIAL_4_DOWN_TOGGLE","bool"       - READ - From model xml -Toggles true/false when knob rotated
         "Z:B21_LX_9050_DIAL_4_CLICK","bool"             - READ - From model xml - Toggles true/false when knob clicked
 
-        "L:B21_WP_BEARING_DEG","degrees"            - WRITE - bearing to current waypoint degrees true
-        "L:B21_WP_VMG_MS","meters per second"       - WRITE - velocity made good towards current waypoint
+        "Z:B21_WP_BEARING_DEG","degrees"            - WRITE - bearing to current waypoint degrees true
+        "Z:B21_WP_VMG_MS","meters per second"       - WRITE - velocity made good towards current waypoint
 
 this.map_instrument is a MSFS MapInstrument JS Object supporting <map_instrument> HTML element
     asobo-vcockpits-instruments\html_ui\Pages\VCockpit\Instruments\Shared\Map\MapInstrument.js
@@ -214,9 +214,9 @@ class LX_9050_class extends BaseInstrument {
             this.WIND_DIRECTION_DEG = SimVar.GetSimVarValue("A:AMBIENT WIND DIRECTION", "degrees");
             this.WIND_SPEED_MS = SimVar.GetSimVarValue("A:AMBIENT WIND VELOCITY", "meters per second");
             // Speed to fly for current maccready setting at zero sink
-            this.STF_SPEED_0_MS = SimVar.GetSimVarValue("L:B21_STF_SPEED_0_MS","meters per second"); // From LX_S100
+            this.STF_SPEED_0_MS = SimVar.GetSimVarValue("Z:B21_STF_SPEED_0_MS","meters per second"); // From LX_S100
             // Polar sink rate at the zero sink speed-to-fly
-            this.STF_SINK_0_MS = SimVar.GetSimVarValue("L:B21_STF_SINK_0_MS","meters per second"); // From LX_S100 (sink is negative)
+            this.STF_SINK_0_MS = SimVar.GetSimVarValue("Z:B21_STF_SINK_0_MS","meters per second"); // From LX_S100 (sink is negative)
             //this.ON_GROUND = SimVar.GetSimVarValue("SIM ON GROUND","bool") ? true : false;
 
             // BUTTON KNOB KEY EVENT VARS
@@ -228,9 +228,9 @@ class LX_9050_class extends BaseInstrument {
             this.KNOBS_VAR = ("0000" + SimVar.GetSimVarValue("TRANSPONDER CODE:1", "number")).slice(-4); // knobs encoded in 4 digits of XPNDR
 
             // Additional vars used by thermalling_display
-            this.NETTO_MS = SimVar.GetSimVarValue("L:B21_NETTO_MS","meters per second"); // From b21_soaring_engine_class
+            this.NETTO_MS = SimVar.GetSimVarValue("Z:B21_NETTO_MS","meters per second"); // From b21_soaring_engine_class
             this.TE_MS = SimVar.GetSimVarValue("Z:B21_TE_MS", "number"); // From model xml
-            this.MACCREADY_MS = SimVar.GetSimVarValue("L:B21_MACCREADY_MS", "meters per second");
+            this.MACCREADY_MS = SimVar.GetSimVarValue("Z:B21_MACCREADY_MS", "meters per second");
             this.WP_BEARING_DEG = B21_SOARING_ENGINE.current_wp() == null ? null : B21_SOARING_ENGINE.current_wp().bearing_deg;
 
             if (NAVMAP.map_instrument_loaded) {
@@ -1353,7 +1353,7 @@ class LX_9050_class extends BaseInstrument {
             bearing_deg = wp.leg_bearing_deg; // Other waypoints use leg WP->WP bearing
         }
 
-        //let gr_actual = SimVar.GetSimVarValue("L:B21_GLIDE_RATIO","number");
+        //let gr_actual = SimVar.GetSimVarValue("Z:B21_GLIDE_RATIO","number");
         //let gr_actual_str = gr_actual > 99 ? "+++" : gr_actual.toFixed(1);
         //bearing_el.innerHTML = gr_actual_str;
         bearing_el.innerHTML = bearing_deg.toFixed(0);
@@ -1438,8 +1438,8 @@ class LX_9050_class extends BaseInstrument {
             this.ex=365724;
             task_speed_ms = task_distance_m / B21_SOARING_ENGINE.task_time_s();
         }
-        SimVar.SetSimVarValue("L:B21_TASK_DISTANCE_M","meters", task_distance_m);
-        SimVar.SetSimVarValue("L:B21_TASK_SPEED_MS","meters per second", task_speed_ms);
+        SimVar.SetSimVarValue("Z:B21_TASK_DISTANCE_M","meters", task_distance_m);
+        SimVar.SetSimVarValue("Z:B21_TASK_SPEED_MS","meters per second", task_speed_ms);
 
         let task_speed = task_speed_ms * (this.task_speed_units=="kph" ? this.MS_TO_KPH : this.MS_TO_KNOTS);
         let task_speed_str = task_speed > 999 ? "999" : task_speed.toFixed(0);
@@ -1468,11 +1468,11 @@ class LX_9050_class extends BaseInstrument {
         this.ex=365744;
         let vmg_ms = ground_speed_ms * Math.cos(Geo.DEG_TO_RAD(gr_bearing_deg - ground_track_true_deg));
         this.ex=365745;
-        SimVar.SetSimVarValue("L:B21_WP_BEARING_DEG","degrees", gr_bearing_deg);
-        SimVar.SetSimVarValue("L:B21_WP_VMG_MS","meters per second", vmg_ms);
+        //SimVar.SetSimVarValue("Z:B21_WP_BEARING_DEG","degrees", gr_bearing_deg);
+        //SimVar.SetSimVarValue("Z:B21_WP_VMG_MS","meters per second", vmg_ms);
 
         // The current glide ratio is produced by the model XML
-        let gr_now = SimVar.GetSimVarValue("L:B21_GLIDE_RATIO","number") // this 'live' L/D ratio
+        let gr_now = SimVar.GetSimVarValue("Z:B21_GLIDE_RATIO","number") // this 'live' L/D ratio
         //let te_smoothed_ms = SimVar.GetSimVarValue("Z:B21_TE_SMOOTHED_MS","number"); // sink is -ve
         //let gr_now = te_smoothed_ms >= 0 ? 100 : -vmg_ms / te_smoothed_ms;
         let gr_now_str = gr_now > 99 ? "+++" : gr_now.toFixed(0);
