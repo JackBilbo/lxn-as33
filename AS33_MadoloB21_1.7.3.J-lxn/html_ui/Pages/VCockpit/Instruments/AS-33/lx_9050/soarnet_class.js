@@ -101,22 +101,23 @@ class soarnet {
 
             SOARNET.displayUserList();
             
-            let time_to_start = (SOARNET.eventDetails && SOARNET.eventDetails[this.currentEvent]) ? SOARNET.getTimetostart_s(SOARNET.eventDetails[this.currentEvent].time) : 0;   
+            let time_to_start = (SOARNET.eventDetails && SOARNET.eventDetails[this.currentEvent]) ? SOARNET.getTimetostart_s(SOARNET.eventDetails[this.currentEvent].time) : 1;   
             if (time_to_start <= 0 && !B21_SOARING_ENGINE.task_started()) {
 
-                /*
-                this.instrument.mpTasktime = time_to_start;
+                document.getElementById("mpcountdown").innerText = SOARNET.formatTime(time_to_start);
                 if(time_to_start >= -10) {
                     if(time_to_start <= -1) { 
-                        SOARNET.countdown(Math.abs(time_to_start),400) 
+                        SOARNET.countdown(Math.abs(time_to_start),300) 
                     } else {
-                        SOARNET.countdown("GO",400);
+                        SOARNET.countdown("GO",300);
                         window.setTimeout(SOARNET.countdown_off,3000);
                     }
                     
-                }
-                */
-            } 
+                } 
+                
+            } else {
+                document.getElementById("mpcountdown").innerText = "";
+            }
         }
     }
 

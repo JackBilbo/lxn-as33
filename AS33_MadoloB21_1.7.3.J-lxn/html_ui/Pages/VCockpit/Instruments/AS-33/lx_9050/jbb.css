@@ -394,6 +394,13 @@
 	right: 25px;
 }
 
+#mpcountdown {
+	position: absolute;
+	top: 80px;
+	right: 100px;
+	color: #000;
+}
+
 .content {
 	background-color: #333;
 	color: #fff;
