@@ -134,7 +134,6 @@ class LX_9050_class extends BaseInstrument {
 
         NAVMAP = new navmap(this);
         JBB = new jbb(this); JBB.init();
-        SN = new soarnet(this); SN.init();
 
         this.map_instrument_loaded = false;
 
@@ -252,10 +251,6 @@ class LX_9050_class extends BaseInstrument {
 
                 this.ex="JBB"; JBB.update();
 
-                if (this.prev_sn_update_time_s == null || this.TIME_S - this.prev_sn_update_time_s > 1) {
-                    this.prev_sn_update_time_s = this.TIME_S;
-                    SN.update();
-                }
             }
             //document.getElementById("lx_9050_debug").innerHTML += "B21.update.end."+Math.floor(SimVar.GetSimVarValue("E:ABSOLUTE TIME","seconds") % 10);
         } catch (e) {

@@ -270,7 +270,7 @@ class navmap {
 
 
         if (this.instrument.prev_nav_y_offset_px==null || this.instrument.prev_nav_y_offset_px != this.instrument.nav_y_offset_px) {
-            if (this.instrument.prev_nav_y_offset==null) { console.log("update_map_center() prev_nav_y_offset==null"); }
+            if (this.instrument.prev_nav_y_offset==null) { /* console.log("update_map_center() prev_nav_y_offset==null"); */ }
             this.instrument.prev_nav_y_offset_px = this.instrument.nav_y_offset_px;
 
             

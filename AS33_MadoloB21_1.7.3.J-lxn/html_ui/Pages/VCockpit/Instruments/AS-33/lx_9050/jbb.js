@@ -7,6 +7,8 @@ class jbb {
     init() {
         this.init_speedgauge();
 
+        initconnector();
+
         document.getElementById("multiplayer").addEventListener("click", (e)=> {
             let mpelement = document.querySelector(".content.mp");
             if(mpelement.style.display == "block") {
@@ -36,6 +38,50 @@ class jbb {
         }
         
         this.currentBallast = Math.round(SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:2", "kg") + SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:3", "kg") + SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:4", "kg") + SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:5", "kg")  + SimVar.GetSimVarValue("PAYLOAD STATION WEIGHT:6", "kg"))
+    
+        if (this.prev_mp_time_s == null || this.instrument.TIME_S - this.prev_mp_time_s > 1) {
+            this.prev_mp_time_s = this.instrument.TIME_S;
+            let taskstate = "not started";
+            let avg_speed = 0;
+            let tasktime = 0;
+            if(B21_SOARING_ENGINE.task_started()) { taskstate = "started"; avg_speed = B21_SOARING_ENGINE.task.avg_task_speed_kts(); tasktime = B21_SOARING_ENGINE.task_time_s() }
+            if(B21_SOARING_ENGINE.task_finished()) { taskstate = "finished"; avg_speed = B21_SOARING_ENGINE.finish_speed_ms() / 0.51444; tasktime = B21_SOARING_ENGINE.task.finish_time_s - B21_SOARING_ENGINE.task.start_time_s; }
+
+            if(B21_SOARING_ENGINE.task_active()) {
+
+                let aircraft = {
+                    type: "AS33",
+                    position: this.instrument.get_position(),
+                    heading: this.instrument.PLANE_HEADING_DEG,
+                    track: this.instrument.PLANE_TRACK_DEG,
+                    airspeed: this.instrument.AIRSPEED_MS,
+                    alt: this.instrument.ALTITUDE_M / 0.3048,
+                    dist: (B21_SOARING_ENGINE.task.distance_m() - B21_SOARING_ENGINE.task.remaining_distance_m()) / 1.852,
+                    state: taskstate,
+                    avg: avg_speed,
+                    tasktime: tasktime,
+                    units: {
+                        alt: this.instrument.altitude_units,
+                        dist: this.instrument.distance_units,
+                        speed: this.instrument.speed_units
+                    }
+                }
+
+                setObject("SOARNET.aircraft",aircraft);
+
+                
+                    let B21_SE = {
+                        wp_start: B21_SOARING_ENGINE.task.start_wp().position,
+                        wp_finish: B21_SOARING_ENGINE.task.finish_wp().position
+                    }                
+                    setObject("SOARNET.B21",B21_SE);
+                
+
+            
+                callfunction("SOARNET.update","");
+
+            }
+        }
     }
 
 
