@@ -1,3 +1,4 @@
+
 class jbb {
     constructor(instrument) {
         this.instrument = instrument; // Reference to main instrument
@@ -75,10 +76,24 @@ class jbb {
                         wp_finish: B21_SOARING_ENGINE.task.finish_wp().position
                     }                
                     setObject("SOARNET.B21",B21_SE);
-                
-
-            
+                            
                 callfunction("SOARNET.update","");
+
+                if(typeof(mpusers) != "undefined") {
+                    this.mpuserobj = JSON.parse(mpusers);
+
+                    for(var user in this.mpuserobj) {
+                        if(user != ownid) {
+                            try {
+                                NAVMAP.paintMultiplayers(user, this.mpuserobj[user]);
+                            } catch(e) {
+                                console.log(e);
+                                NAVMAP.wipeMultiplayers();
+                            }
+                        }
+                    }
+                }
+                
 
             }
         }

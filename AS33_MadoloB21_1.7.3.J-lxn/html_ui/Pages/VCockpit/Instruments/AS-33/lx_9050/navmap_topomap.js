@@ -498,7 +498,6 @@ class navmap {
     }
 
     paintMultiplayers(userid, data) {
-        
         if(this.mpMarker[userid] == null) {
             this.mpMarker[userid] = L.marker([data.lat, data.long], { icon: this.mpglidericon }).addTo(TOPOMAP)
             let mplabel = document.createElement("div");
@@ -518,9 +517,9 @@ class navmap {
                 label.style.transform = "rotate(0deg)";
             }
         }
-
+        
         for (var marker in this.mpMarker) {
-            if(!SOARNET.eventusers[marker] && this.mpMarker[marker] != null) {
+            if(!JBB.mpuserobj[marker] && this.mpMarker[marker] != null) {
                 TOPOMAP.removeLayer(this.mpMarker[marker]);
                 delete this.mpMarker[marker];
             }

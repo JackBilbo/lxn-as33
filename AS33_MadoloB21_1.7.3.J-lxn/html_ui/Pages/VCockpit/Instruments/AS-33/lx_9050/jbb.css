@@ -449,3 +449,33 @@
 	padding: 5px 0;
 	padding: 0 0.5rem;
 }
+
+#countdown {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    left: 0;
+    top: 50%;
+    margin-top: -300px;
+    line-height: 580px;
+    text-align: center;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+}
+
+.mplabel {
+    position: absolute;
+    top: -1em;
+    left: 70%;
+    background-color: #fff;
+    color: #333;
+    padding: 0 0.1em 0.1em 0.1em;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 1rem;
+    line-height: 1.1em;
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    max-width: 5.5em;
+    white-space: nowrap;
+}
