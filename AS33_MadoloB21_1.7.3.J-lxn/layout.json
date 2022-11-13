@@ -2,13 +2,13 @@
   "content": [
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/jbb.css",
-      "size": 7602,
-      "date": 133114576704351111
+      "size": 7689,
+      "date": 133128319155713610
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/jbb.js",
       "size": 10124,
-      "date": 133115041640807781
+      "date": 133128319155723624
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx9050_display.png",
@@ -27,13 +27,13 @@
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.html",
-      "size": 21139,
-      "date": 133110205167947445
+      "size": 21231,
+      "date": 133128319155723624
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.js",
       "size": 127836,
-      "date": 133116161323813812
+      "date": 133128319155743607
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/mapConfig.json",
@@ -43,12 +43,12 @@
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/navmap_topomap.js",
       "size": 25679,
-      "date": 133112057801328149
+      "date": 133128319155753489
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet.css",
-      "size": 3007,
-      "date": 133110241388867237
+      "size": 3091,
+      "date": 133117034537929615
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet.js",
@@ -57,8 +57,18 @@
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet_class.js",
-      "size": 10683,
-      "date": 133110253667728956
+      "size": 10943,
+      "date": 133122325861318556
+    },
+    {
+      "path": "SimObjects/Airplanes/AS 33 18m Aircraft/ai.cfg",
+      "size": 1919,
+      "date": 133128319625268140
+    },
+    {
+      "path": "SimObjects/Airplanes/AS 33 18m Aircraft/aircraft.cfg",
+      "size": 11631,
+      "date": 133128319625268140
     }
   ]
 }
