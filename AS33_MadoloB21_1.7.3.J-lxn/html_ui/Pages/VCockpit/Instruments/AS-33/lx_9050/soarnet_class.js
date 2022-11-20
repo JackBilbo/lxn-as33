@@ -6,6 +6,12 @@ class soarnet {
     }
 
     init() {
+        try {
+            this.debuglog = document.getElementById("debug");
+        } catch(e) {
+            console.error(e);
+        }
+
         document.getElementById("username").value = SimVar.GetSimVarValue("ATC ID", "string"); 
 
         document.getElementById("mpformsubmit").addEventListener("click", function(e) {
@@ -19,14 +25,21 @@ class soarnet {
             SOARNET.initConnection();
             document.querySelector(".mainmessage").innerText = "connecting...";
 
-            window.setTimeout(function() {
-                if(SOARNET.checkvalue.masterkey == "isActive" && SOARNET.checkvalue.ssckey == "isActive") { 
-                    document.querySelector(".mainmessage").innerText = "";
-                    document.querySelector(".mp").classList.remove("notConnected");
-                } else {
+            let count = 0;
+        let connector = window.setInterval(function() {
+            if(SOARNET.checkvalue.masterkey == "isActive" && SOARNET.checkvalue.ssckey == "isActive") { 
+                document.querySelector(".mainmessage").innerText = "";
+                document.querySelector(".mp").classList.remove("notConnected");
+                window.clearInterval(connector);
+                SN.log("connected to soarnet in " + count + " Milliseconds<br>");
+            } else {
+                if(count >= 3000) {
                     document.querySelector(".mainmessage").innerText = "Sorry, System currently not available.";
-                }
-            }, 500)
+                    window.clearInterval(connector);
+                }    
+                count ++;
+            }
+        }, 1)
             
         })
 
@@ -87,6 +100,7 @@ class soarnet {
     }
 
     update() {
+        if(SOARNET.checkvalue.debug == "true") { SN.debuglog.style.display = "block"; } else { SN.debuglog.style.display = "none"; }
         if(!B21_SOARING_ENGINE.task_active()) { return; }
 
         if(this.isActive) {
@@ -145,54 +159,74 @@ class soarnet {
         )
     }
 
+    log(msg) {
+        if(this.debuglog) {
+            this.debuglog.innerHTML += msg;
+            this.debuglog.scrollTop = this.debuglog.scrollHeight;
+        }
+    }
 }
 
 SOARNET.displayUserList = function(){
-    let list = document.querySelector("#userlist tbody");
+    let i = 1;
     let userList = [];
     let finisherlist = [];
-    let now = Math.floor(Date.now() / 1000);
-    list.innerHTML = "";
-    
-    for (user in SOARNET.eventusers) {
+
+    try {
+        let list = document.querySelector("#userlist tbody");    
+        let now = Math.floor(Date.now() / 1000);
+        list.innerHTML = "";
         
-        if(SOARNET.eventusers[user].taskstate == "finished") {
-            finisherlist.push(SOARNET.eventusers[user]);
-        } else {
-            if (SOARNET.eventusers[user].taskstate == "not started") { SOARNET.eventusers[user].dist = -1; }
-            userList.push(SOARNET.eventusers[user]);
-        }
+        for (user in SOARNET.eventusers) {
             
-        if(typeof(TOPOMAP.addLayer) == "function" && user != this.userId) {
-            try {
-                NAVMAP.paintMultiplayers(user, SOARNET.eventusers[user]);
-            } catch(e) {
-                console.log(e);
-                NAVMAP.wipeMultiplayers();
-            } 
+            if(SOARNET.eventusers[user].taskstate == "finished") {
+                finisherlist.push(SOARNET.eventusers[user]);
+            } else {
+                if (SOARNET.eventusers[user].taskstate == "not started") { SOARNET.eventusers[user].dist = -1; }
+                userList.push(SOARNET.eventusers[user]);
+            }
+                
+            if(typeof(TOPOMAP.addLayer) == "function" && user != this.userId) {
+                try {
+                    NAVMAP.paintMultiplayers(user, SOARNET.eventusers[user]);
+                } catch(e) {
+                    console.log(e);
+                    NAVMAP.wipeMultiplayers();
+                } 
+            }
+                
         }
-             
+
+        finisherlist.sort((a,b) => {
+            return parseInt(a.tasktime) - parseInt(b.tasktime);
+        })
+
+        userList.sort((a,b) => {
+            return parseInt(b.dist) - parseInt(a.dist);
+        })
+
+        
+
+        finisherlist.forEach((el) => {
+            list.innerHTML += "<tr><td class='alignright'>" + i + "</td><td class='mpusername'>" + el.username + "</td><td>" + parseFloat(el.alt).toFixed(0) + "</td><td class='alignright'>" + parseFloat(el.avg).toFixed(0) + "</td><td class='alignright'>" + SOARNET.formatTime(el.tasktime) + "</td></tr>";
+            i++;
+        })
+
+        userList.forEach((el) => {
+        list.innerHTML += "<tr><td class='alignright'>" + (el.taskstate == "not started" ? "--" : i) + "</td><td class='mpusername'>" + el.username + "</td><td>" + parseFloat(el.alt).toFixed(0) + "</td><td class='alignright'>" + (el.taskstate == "not started" ? "-" : parseFloat(el.avg).toFixed(0)) + "</td><td class='alignright'>" + (el.taskstate == "not started" ? "0" : (parseFloat(el.dist) / 1000).toFixed(1)) + "</td></tr>";
+        i++;  
+        })
+    } catch(e) {
+        console.error(e);
+        SN.log("ERROR: " + e);
     }
 
-    finisherlist.sort((a,b) => {
-        return parseInt(a.tasktime) - parseInt(b.tasktime);
-      })
 
-    userList.sort((a,b) => {
-        return parseInt(b.dist) - parseInt(a.dist);
-    })
-
-    let i = 1;
-
-    finisherlist.forEach((el) => {
-        list.innerHTML += "<tr><td class='alignright'>" + i + "</td><td class='mpusername'>" + el.username + "</td><td>" + parseFloat(el.alt).toFixed(0) + "</td><td class='alignright'>" + parseFloat(el.avg).toFixed(0) + "</td><td class='alignright'>" + SOARNET.formatTime(el.tasktime) + "</td></tr>";
-        i++;
-    })
-
-    userList.forEach((el) => {
-      list.innerHTML += "<tr><td class='alignright'>" + (el.taskstate == "not started" ? "--" : i) + "</td><td class='mpusername'>" + el.username + "</td><td>" + parseFloat(el.alt).toFixed(0) + "</td><td class='alignright'>" + (el.taskstate == "not started" ? "-" : parseFloat(el.avg).toFixed(0)) + "</td><td class='alignright'>" + (el.taskstate == "not started" ? "0" : (parseFloat(el.dist) / 1000).toFixed(1)) + "</td></tr>";
-      i++;  
-    })
+    SOARNET.numusers = i - 1;
+    if(SOARNET.numusers != SOARNET.lastnumusers) {
+        SN.log(SOARNET.numusers + " User(s) in current Event. (" + finisherlist.length + " finished)<br>");
+        SOARNET.lastnumusers = SOARNET.numusers;
+    }
 
     SOARNET.isSolo = i == 2 ? true : false;
   }
@@ -214,6 +248,7 @@ SOARNET.joinEvent = function() {
     SOARNET.createListener(SN.currentEvent);
     SOARNET.userId = SOARNET.userId == "" ? SOARNET.getUserId(SN.currentEvent) : SOARNET.userId ;           
     SN.isActive = true;
+    SN.log("Joined event " + SOARNET.eventDetails[SN.currentEvent].title + " with user id " + SOARNET.userId + "<br>");
     document.querySelector(".mp").classList.remove("noEvent");
 }
 
