@@ -7,9 +7,16 @@ Simply drop the included folder "AS33_MadoloB21_1.7.3.J-lxn" into your community
 
 Updated:
 
-Added countdown for multiplayer races: if an event is joined, the time to the start is displayed in the top right corner of the map. The last ten seconds are counted in a flashy bold way in the map center.
+Fixed a bug that prevented clicks on the glider icon.
 
-Limited the length of Usernames in Multiplayer table and map labels.
+Added a switch to toggle the airport/airspaces layer (this layer can be loading slow at times)
+
+Fixed a bug, where the speedtape would overlay the thermalling display
+
+Fixed a bug, where the countdown timer remained visible after a multiplayer-event was left
+
+Added the reference points from kabouter_plons for optimized positions for tow rope and wing runner when using MSFS launch methods.
+
 
 ------------------------------
 
