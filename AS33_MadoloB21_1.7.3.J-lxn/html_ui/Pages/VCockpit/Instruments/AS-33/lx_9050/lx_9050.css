@@ -501,9 +501,6 @@ lx_9050-element #lx_9050_nav_arrows {
 
 /* TASK PAGE WP TITLE */
 
-.lx_9050_task_page_wp_title {
-}
-
 .lx_9050_task_page_wp_name {
     display: inline-block;
     width: 75%;
@@ -875,9 +872,9 @@ lx_9050-element #lx_9050_settings_button_label {
 #lx_9050_debug {
     position: absolute;
     left: 5%;
-    top: 20%;
+    top: 70%;
     width: 90%;
-    height: 80%;
+    height: 0;
     text-align: center;
     color: black;
     font-size: 25px;

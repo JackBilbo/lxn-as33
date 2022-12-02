@@ -228,7 +228,7 @@
 	height: calc(var(--deviceheight) / 2);
 	width: calc(var(--devicewidth) / 5);
 	background-color: rgba(0,0,0,0.4);
-	z-index:99;
+	z-index:0;
 	opacity: 1;
 }
 
@@ -392,6 +392,13 @@
 #multiplayer {
 	top: 80px;
 	right: 25px;
+}
+
+
+#aiplayerswitch {
+	right:25px;
+	top: 160px;
+	z-index: 0;
 }
 
 #mpcountdown {

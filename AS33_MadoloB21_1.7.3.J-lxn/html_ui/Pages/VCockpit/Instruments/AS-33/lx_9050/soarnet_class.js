@@ -77,6 +77,7 @@ class soarnet {
                 SOARNET.writeUserData(SN.currentEvent, SOARNET.userId, null);
                 SOARNET.detachlistener();
                 NAVMAP.wipeMultiplayers();
+                document.getElementById("mpcountdown").innerText = "";
             } catch(e) {
                 console.log(e);
             }

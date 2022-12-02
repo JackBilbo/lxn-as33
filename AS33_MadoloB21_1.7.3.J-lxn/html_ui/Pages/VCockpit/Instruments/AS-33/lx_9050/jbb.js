@@ -21,8 +21,15 @@ class jbb {
         });
 
         document.querySelector("#glidericon #symbol").addEventListener("click", (e)=> {
-            console.log("CLICK");
             document.querySelector("#hawk").classList.toggle("isHidden");
+        })
+
+        document.querySelector("#aiplayerswitch").addEventListener("click", (e)=> {
+            if(NAVMAP.hasAipLayer) {
+                NAVMAP.removeAipLayer();
+            } else {
+                NAVMAP.addAipLayer();
+            }
         })
     }
 

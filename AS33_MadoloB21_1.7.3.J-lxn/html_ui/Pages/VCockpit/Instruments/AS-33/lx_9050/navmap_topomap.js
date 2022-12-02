@@ -38,6 +38,7 @@ class navmap {
         this.task_svg_el = document.getElementById("lx_9050_task");
 
         this.mpMarker = {};
+        this.hasAipLayer = true;
         
         TOPOMAP = "noinit";
     }
@@ -568,7 +569,15 @@ class navmap {
                         touchZoom: false
         }).addTo(TOPOMAP);
 
-        L.tileLayer('https://{s}.api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=7beacc9257a32efe75a26bcbcb222874', {
+        if(this.hasAipLayer) {
+            this.addAipLayer()
+        }
+
+        this.taskgeojson = L.geoJSON("", {style: function(feature) { return feature.properties; }}).addTo(TOPOMAP);
+    }
+
+    addAipLayer() {
+        this.aipLayer = L.tileLayer('https://{s}.api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=7beacc9257a32efe75a26bcbcb222874', {
                         maxZoom: this.map_maxzoom,
                         minZoom: this.map_minzoom,
                         subdomains:['a','b','c'],
@@ -581,9 +590,14 @@ class navmap {
                         tap: false,
                         touchZoom: false
         }).addTo(TOPOMAP);
+        this.hasAipLayer = true;
+    }
 
-        this.taskgeojson = L.geoJSON("", {style: function(feature) { return feature.properties; }}).addTo(TOPOMAP);
-        
+    removeAipLayer() {
+        if(this.hasAipLayer) {
+            TOPOMAP.removeLayer(this.aipLayer);
+            this.hasAipLayer = false;
+        }
     }
 
     resetMap() {
