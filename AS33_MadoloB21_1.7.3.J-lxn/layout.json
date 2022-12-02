@@ -2,13 +2,13 @@
   "content": [
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/jbb.css",
-      "size": 7689,
-      "date": 133128319155713610
+      "size": 7955,
+      "date": 133144451479778038
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/jbb.js",
-      "size": 10124,
-      "date": 133128319155723624
+      "size": 10344,
+      "date": 133144448498287352
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx9050_display.png",
@@ -22,18 +22,18 @@
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.css",
-      "size": 18403,
-      "date": 133109057755802830
+      "size": 18368,
+      "date": 133144454299097253
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.html",
-      "size": 21231,
-      "date": 133128319155723624
+      "size": 21856,
+      "date": 133144450790075894
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/lx_9050.js",
       "size": 127836,
-      "date": 133128319155743607
+      "date": 133139726080903992
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/mapConfig.json",
@@ -42,8 +42,8 @@
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/navmap_topomap.js",
-      "size": 25679,
-      "date": 133128319155753489
+      "size": 26022,
+      "date": 133144446496464784
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet.css",
@@ -57,8 +57,8 @@
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/AS-33/lx_9050/soarnet_class.js",
-      "size": 10943,
-      "date": 133122325861318556
+      "size": 12383,
+      "date": 133144456565608174
     },
     {
       "path": "SimObjects/Airplanes/AS 33 18m Aircraft/ai.cfg",
@@ -69,6 +69,11 @@
       "path": "SimObjects/Airplanes/AS 33 18m Aircraft/aircraft.cfg",
       "size": 11631,
       "date": 133128319625268140
+    },
+    {
+      "path": "SimObjects/Airplanes/AS 33 18m Aircraft/reference_points.cfg",
+      "size": 1069,
+      "date": 133144461404399973
     }
   ]
 }
